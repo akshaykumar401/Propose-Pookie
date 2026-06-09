@@ -3,7 +3,7 @@ import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 
 // Gold band ring + diamond gem
-export function DiamondRing(props: JSX.IntrinsicElements['group']) {
+export function DiamondRing(props: any) {
   const groupRef  = useRef<THREE.Group>(null!);
   const gemRef    = useRef<THREE.Mesh>(null!);
 

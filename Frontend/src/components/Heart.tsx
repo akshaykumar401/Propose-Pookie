@@ -6,7 +6,7 @@ import * as THREE from 'three';
 // Helvetiker Bold hosted by three.js CDN
 const FONT_URL = 'https://threejs.org/examples/fonts/helvetiker_bold.typeface.json';
 
-export function Heart(props: JSX.IntrinsicElements['mesh']) {
+export function Heart(props: any) {
   const groupRef = useRef<THREE.Group>(null!);
   const glowRef  = useRef<THREE.Mesh>(null!);
 

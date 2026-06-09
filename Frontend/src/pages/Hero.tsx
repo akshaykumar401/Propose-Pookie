@@ -36,7 +36,7 @@ function Fireflies({ count = 100 }: { count?: number }) {
   return (
     <points ref={ref}>
       <bufferGeometry>
-        <bufferAttribute attach="attributes-position" count={count} array={positions} itemSize={3} />
+        <bufferAttribute attach="attributes-position" args={[positions, 3]} />
       </bufferGeometry>
       <pointsMaterial size={0.10} color="#f9a8d4" transparent opacity={0.7} sizeAttenuation depthWrite={false} />
     </points>
@@ -202,9 +202,10 @@ export function Hero() {
         </div>
 
         {/* Badge / quote pill */}
-        <div ref={badgeRef} style={{ opacity: 0 }}
+        <div ref={badgeRef}
           className="mt-8 inline-flex items-start gap-4 max-w-md p-5 rounded-2xl border"
           style={{
+            opacity: 0,
             background: 'rgba(255,255,255,0.04)',
             borderColor: 'rgba(249,168,212,0.2)',
             backdropFilter: 'blur(12px)',
