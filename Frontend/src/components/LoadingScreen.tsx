@@ -48,7 +48,6 @@ export function LoadingScreen({ onComplete }: { onComplete: () => void }) {
 
   // Smooth progress calculation
   useEffect(() => {
-    const target = Math.max(progress, 100);
     const interval = setInterval(() => {
       setPercent((prev) => {
         if (prev >= 100) {
