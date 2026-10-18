@@ -3,7 +3,27 @@
 @theme {
   --font-sans: "Inter", sans-serif;
   --font-serif: "Cormorant Garamond", serif;
+  --font-playfair: "Playfair Display", serif;
+  --font-cinzel: "Cinzel", serif;
   --font-script: "Dancing Script", cursive;
+  --font-vibes: "Great Vibes", cursive;
+  --font-brush: "Alex Brush", cursive;
+
+  --color-sage-50: #f4faf6;
+  --color-sage-100: #e5f5eb;
+  --color-sage-200: #cbead7;
+  --color-sage-300: #a3d9b8;
+  --color-sage-400: #74c69d;
+  --color-sage-500: #52b788;
+  --color-sage-600: #40916c;
+  --color-sage-700: #2d6a4f;
+  --color-sage-800: #1b4332;
+  --color-sage-900: #081c15;
+
+  --color-love-gold: #f7d070;
+  --color-love-gold-bright: #ffd700;
+  --color-love-blush: #ff9ebb;
+  --color-love-rose: #ff4d6d;
 }
 
 @layer base {
@@ -15,37 +35,179 @@
 
   html {
     scroll-behavior: smooth;
+    background-color: #0b1a13;
   }
 
   html, body, #root {
     width: 100%;
+    max-width: 100vw;
     min-height: 100%;
-    overflow-x: hidden;
+    overflow-x: hidden !important;
   }
 
   body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-family: "Inter", sans-serif;
-    background: #0d0010;
-    color: #fff;
+    font-family: "Cormorant Garamond", serif;
+    background: radial-gradient(circle at 50% 20%, #153325 0%, #0d2118 55%, #07130e 100%);
+    color: #f0fdf4;
+  }
+
+  /* Elegant Botanical Romantic Cursor with Gold & Emerald Highlights (Desktop only, never touch/mobile) */
+  @media (hover: hover) and (pointer: fine) {
+    *, *::before, *::after {
+      cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M3 3L10.5 20.5L13.5 13.5L20.5 10.5L3 3Z' fill='%23092117' stroke='%23ffd700' stroke-width='1.5' stroke-linejoin='round'/%3E%3Cpath d='M5 5L9.5 17L12 12L17 9.5L5 5Z' fill='%2352b788' opacity='0.9'/%3E%3Ccircle cx='13' cy='13' r='1.5' fill='%23ffd700'/%3E%3C/svg%3E") 3 3, default;
+    }
+
+    /* Interactive Elements: Always show Custom Heart Wand Cursor on desktop */
+    button,
+    [role="button"],
+    a,
+    input[type="range"],
+    label,
+    summary,
+    [onclick],
+    [data-interactive="true"],
+    .cursor-pointer,
+    [class*="cursor-pointer"],
+    .cursor-pointer *,
+    button * {
+      cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='26' viewBox='0 0 26 26' fill='none'%3E%3Cpath d='M3 3L10.5 20.5L13.5 13.5L20.5 10.5L3 3Z' fill='%231b4332' stroke='%23ffd700' stroke-width='2' stroke-linejoin='round'/%3E%3Cpath d='M5 5L9.5 17L12 12L17 9.5L5 5Z' fill='%23ffd700' opacity='0.75'/%3E%3Cpath d='M18 4 C17 2.8 15 3.2 14.5 4.5 C14 3.2 12 2.8 11 4 C10 5.2 10.5 6.8 14.5 9.8 C18.5 6.8 19 5.2 18 4 Z' fill='%23ff4d6d' stroke='%23ffd700' stroke-width='0.8'/%3E%3C/svg%3E") 3 3, default !important;
+    }
+
+    /* Text inputs keep standard precise text caret */
+    input[type="text"],
+    input[type="password"],
+    input[type="number"],
+    textarea {
+      cursor: text !important;
+    }
   }
 }
 
 @layer utilities {
+  .font-vibes { font-family: "Great Vibes", cursive; }
+  .font-brush { font-family: "Alex Brush", cursive; }
   .font-script { font-family: "Dancing Script", cursive; }
-  .font-serif  { font-family: "Cormorant Garamond", serif; }
+  .font-playfair { font-family: "Playfair Display", serif; }
+  .font-serif { font-family: "Cormorant Garamond", serif; }
+  .font-cinzel { font-family: "Cinzel", serif; }
+
+  /* Light Green Botanical Gradients with safe padding to prevent script glyph clipping */
+  .botanical-gradient-text {
+    background: linear-gradient(135deg, #ffffff 0%, #a3d9b8 35%, #74c69d 70%, #ffd700 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    padding-top: 0.08em;
+    padding-bottom: 0.14em;
+  }
+
+  .mint-gradient-text {
+    background: linear-gradient(135deg, #f0fdf4 0%, #bbf7d0 45%, #4ade80 85%, #86efac 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    padding-top: 0.08em;
+    padding-bottom: 0.14em;
+  }
+
+  .gold-gradient-text {
+    background: linear-gradient(135deg, #fffbeb 0%, #ffd700 50%, #f59e0b 80%, #ffd700 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    padding-top: 0.08em;
+    padding-bottom: 0.14em;
+  }
+
+  .rose-gradient-text {
+    background: linear-gradient(135deg, #ffffff 0%, #ffb4c2 40%, #ff4d6d 80%, #ffd700 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    padding-top: 0.08em;
+    padding-bottom: 0.14em;
+  }
+
+  /* Botanical Glassmorphism Cards */
+  .botanical-glass {
+    background: rgba(15, 38, 28, 0.75);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(116, 198, 157, 0.35);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), inset 0 0 30px rgba(116, 198, 157, 0.08);
+  }
+
+  .botanical-glass:hover {
+    border-color: rgba(116, 198, 157, 0.6);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 35px rgba(82, 183, 136, 0.3);
+  }
+
+  /* Light Mint Parchment */
+  .botanical-parchment {
+    background: radial-gradient(circle at 50% 50%, #f9fdfa 0%, #edf7f0 65%, #d8ebd9 100%);
+    color: #0f2d1e;
+    border: 2px solid #a3d9b8;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85), inset 0 0 50px rgba(82, 183, 136, 0.15);
+  }
 }
 
-/* Removing The Horizontal Scroll Bar */
+/* Botanical Leaf Float */
+@keyframes leafSway {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(2deg);
+  }
+}
+
+.animate-leaf-sway {
+  animation: leafSway 4s ease-in-out infinite;
+}
+
+/* Green Pulsing Glow */
+@keyframes emeraldGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 10px rgba(82, 183, 136, 0.5));
+  }
+  50% {
+    filter: drop-shadow(0 0 25px rgba(116, 198, 157, 0.9));
+  }
+}
+
+.animate-emerald-glow {
+  animation: emeraldGlow 2.5s ease-in-out infinite;
+}
+
+/* Completely hide all scrollbars (vertical & horizontal) everywhere while preserving smooth scrolling */
+*, *::before, *::after {
+  scrollbar-width: none !important; /* Firefox */
+  -ms-overflow-style: none !important; /* IE and Edge */
+}
+
 ::-webkit-scrollbar {
-  width: 0;
-  background: transparent;
+  display: none !important; /* Chrome, Safari, Opera, Edge */
+  width: 0 !important;
+  height: 0 !important;
+  background: transparent !important;
 }
 
-body {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-thumb,
+::-webkit-scrollbar-corner {
+  display: none !important;
+  background: transparent !important;
 }
 
-
+/* No scrollbar helper utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+.no-scrollbar {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
