@@ -452,22 +452,22 @@ export function RomanticAudioPlayer() {
         {/* ── 1. COMPACT PILL BAR (Always Visible in Top Right) ── */}
         <div
           onClick={() => setIsExpanded(!isExpanded)}
-          className="group relative flex items-center gap-1.5 sm:gap-2.5 px-2.5 py-1.5 sm:px-3.5 sm:py-2 rounded-full botanical-glass border border-[#52b788]/60 shadow-[0_4px_25px_rgba(0,0,0,0.7),0_0_15px_rgba(82,183,136,0.3)] backdrop-blur-xl hover:border-[#ffd700]/70 transition-all duration-300 cursor-pointer"
+          className="group relative flex items-center gap-1.5 sm:gap-2.5 px-2.5 py-1.5 sm:px-3.5 sm:py-2 rounded-full botanical-glass border border-[#38bdf8]/60 shadow-[0_4px_25px_rgba(0,0,0,0.7),0_0_15px_rgba(56,189,248,0.3)] backdrop-blur-xl hover:border-[#f472b6]/70 transition-all duration-300 cursor-pointer"
           title={isExpanded ? 'Minimize Music Player' : 'Open Music Player'}
         >
           {/* Animated Vinyl Record Badge */}
-          <div className="relative w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-gradient-to-tr from-[#081c15] via-[#1b4332] to-[#081c15] border border-[#ffd700]/70 flex items-center justify-center shrink-0 shadow-md">
+          <div className="relative w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-gradient-to-tr from-[#081e3a] via-[#162d4e] to-[#081e3a] border border-[#f472b6]/70 flex items-center justify-center shrink-0 shadow-md">
             {/* Spinning vinyl lines */}
             <div
-              className={`w-full h-full rounded-full border border-dashed border-[#52b788]/60 flex items-center justify-center ${
+              className={`w-full h-full rounded-full border border-dashed border-[#38bdf8]/60 flex items-center justify-center ${
                 isPlaying ? 'animate-spin duration-3000' : ''
               }`}
             >
-              <Music className={`w-3 h-3 ${isPlaying ? 'text-[#ffd700]' : 'text-[#74c69d]/80'}`} />
+              <Music className={`w-3 h-3 ${isPlaying ? 'text-[#f472b6]' : 'text-[#7dd3fc]/80'}`} />
             </div>
 
-            {/* Glowing emerald center point */}
-            <div className="absolute w-1.5 h-1.5 rounded-full bg-[#ffd700] shadow-[0_0_6px_#ffd700]" />
+            {/* Glowing pink center point */}
+            <div className="absolute w-1.5 h-1.5 rounded-full bg-[#f472b6] shadow-[0_0_6px_#f472b6]" />
           </div>
 
           {/* Dynamic Equalizer Wave Bars (Bouncing when playing) */}
@@ -475,7 +475,7 @@ export function RomanticAudioPlayer() {
             {[0.6, 1.0, 0.4, 0.8].map((mult, idx) => (
               <span
                 key={idx}
-                className={`w-0.5 rounded-full bg-gradient-to-t from-[#52b788] to-[#ffd700] transition-all duration-300 ${
+                className={`w-0.5 rounded-full bg-gradient-to-t from-[#38bdf8] to-[#f472b6] transition-all duration-300 ${
                   isPlaying ? 'animate-pulse' : 'h-1 opacity-50'
                 }`}
                 style={{
@@ -489,11 +489,11 @@ export function RomanticAudioPlayer() {
 
           {/* Track Title Display (Hidden on mobile phones to prevent overlap with chapter titles) */}
           <div className="hidden md:flex flex-col text-left">
-            <span className="text-[9px] font-sans text-[#a3d9b8] uppercase tracking-wider font-semibold flex items-center gap-1">
+            <span className="text-[9px] font-sans text-[#7dd3fc] uppercase tracking-wider font-semibold flex items-center gap-1">
               <span>{isPlaying ? 'Now Playing' : 'Sanctuary Audio'}</span>
-              {isPlaying && <span className="w-1 h-1 rounded-full bg-[#ffd700] animate-ping" />}
+              {isPlaying && <span className="w-1 h-1 rounded-full bg-[#f472b6] animate-ping" />}
             </span>
-            <span className="text-xs font-serif font-bold text-[#f0fdf4] group-hover:text-[#ffd700] transition-colors truncate max-w-[120px] sm:max-w-[150px]">
+            <span className="text-xs font-serif font-bold text-[#f0f9ff] group-hover:text-[#f472b6] transition-colors truncate max-w-[120px] sm:max-w-[150px]">
               {currentTrack.name}
             </span>
           </div>
@@ -504,27 +504,27 @@ export function RomanticAudioPlayer() {
               e.stopPropagation();
               toggleMusic();
             }}
-            className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#1b4332] hover:bg-[#2d6a4f] text-[#ffd700] border border-[#ffd700]/60 flex items-center justify-center shadow-sm hover:scale-105 active:scale-95 transition-all cursor-pointer ml-0.5"
+            className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#0369a1] hover:bg-[#0284c7] text-[#ffffff] border border-[#38bdf8]/60 flex items-center justify-center shadow-sm hover:scale-105 active:scale-95 transition-all cursor-pointer ml-0.5"
             title={isPlaying ? 'Pause' : 'Play'}
           >
             {isPlaying ? (
-              <Pause className="w-3.5 h-3.5 fill-[#ffd700]" />
+              <Pause className="w-3.5 h-3.5 fill-white" />
             ) : (
-              <Play className="w-3.5 h-3.5 fill-[#ffd700] ml-0.5" />
+              <Play className="w-3.5 h-3.5 fill-white ml-0.5" />
             )}
           </button>
 
           {/* Quick Next Track Button on compact bar */}
           <button
             onClick={handleNext}
-            className="hidden sm:flex w-6 h-6 rounded-full bg-[#0e271c] hover:bg-[#1b4332] text-[#d8f3dc] hover:text-[#ffd700] border border-[#52b788]/40 items-center justify-center transition-all cursor-pointer"
+            className="hidden sm:flex w-6 h-6 rounded-full bg-[#0a1e36] hover:bg-[#16355d] text-[#bae6fd] hover:text-[#f472b6] border border-[#38bdf8]/40 items-center justify-center transition-all cursor-pointer"
             title="Next Track"
           >
             <SkipForward className="w-3 h-3" />
           </button>
 
           {/* Expand / Minimize Arrow */}
-          <div className="text-[#a3d9b8] group-hover:text-[#ffd700] transition-colors pl-0.5">
+          <div className="text-[#7dd3fc] group-hover:text-[#f472b6] transition-colors pl-0.5">
             {isExpanded ? (
               <ChevronUp className="w-3.5 h-3.5" />
             ) : (
@@ -535,38 +535,38 @@ export function RomanticAudioPlayer() {
 
         {/* ── 2. EXPANDED ROMANTIC MUSIC PLAYER CARD ── */}
         {isExpanded && (
-          <div className="mt-2 w-[92vw] sm:w-88 max-w-sm botanical-glass p-4 sm:p-5 rounded-3xl border-2 border-[#52b788]/70 shadow-[0_25px_70px_rgba(0,0,0,0.92),0_0_35px_rgba(82,183,136,0.35)] backdrop-blur-2xl animate-fadeIn">
+          <div className="mt-2 w-[92vw] sm:w-88 max-w-sm botanical-glass p-4 sm:p-5 rounded-3xl border-2 border-[#38bdf8]/70 shadow-[0_25px_70px_rgba(0,0,0,0.92),0_0_35px_rgba(56,189,248,0.35)] backdrop-blur-2xl animate-fadeIn">
           {/* Header Row: Title & Partner Nicknames */}
-          <div className="flex items-center justify-between border-b border-[#52b788]/30 pb-2.5 mb-3.5">
+          <div className="flex items-center justify-between border-b border-[#38bdf8]/30 pb-2.5 mb-3.5">
             <div className="flex items-center gap-1.5">
-              <Disc className={`w-4 h-4 text-[#ffd700] ${isPlaying ? 'animate-spin duration-3000' : ''}`} />
-              <span className="font-serif italic text-xs tracking-wider text-[#d8f3dc] font-bold">
+              <Disc className={`w-4 h-4 text-[#f472b6] ${isPlaying ? 'animate-spin duration-3000' : ''}`} />
+              <span className="font-serif italic text-xs tracking-wider text-[#bae6fd] font-bold">
                 Sanctuary Soundtrack
               </span>
             </div>
-            <div className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#081a12]/90 border border-[#ffd700]/40 text-[10px] text-[#ffd700] font-serif shadow-sm">
-              <Heart className="w-2.5 h-2.5 fill-[#ffd700]" />
+            <div className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#08182b]/90 border border-[#f472b6]/40 text-[10px] text-[#f472b6] font-serif shadow-sm">
+              <Heart className="w-2.5 h-2.5 fill-[#f472b6]" />
               <span>For {PROPOSAL_DATA.partnerNickname || 'Pookie'} & {PROPOSAL_DATA.proposerNickname || 'Buggu'}</span>
             </div>
           </div>
 
           {/* Turntable Artwork & Reactive Tonearm Graphic */}
-          <div className="relative flex items-center gap-3.5 mb-3.5 p-3 rounded-2xl bg-[#081a12]/85 border border-[#52b788]/35 shadow-inner overflow-hidden">
-            {/* Spinning Emerald LP Vinyl with Tonearm */}
-            <div className="relative w-16 h-16 rounded-full bg-gradient-to-br from-[#123122] via-[#081a12] to-[#1b4332] border-2 border-[#ffd700] flex items-center justify-center shrink-0 shadow-[0_0_15px_rgba(82,183,136,0.4)]">
+          <div className="relative flex items-center gap-3.5 mb-3.5 p-3 rounded-2xl bg-[#081a2e]/85 border border-[#38bdf8]/35 shadow-inner overflow-hidden">
+            {/* Spinning Sky & Pink LP Vinyl with Tonearm */}
+            <div className="relative w-16 h-16 rounded-full bg-gradient-to-br from-[#0c2445] via-[#08172c] to-[#12315c] border-2 border-[#f472b6] flex items-center justify-center shrink-0 shadow-[0_0_15px_rgba(56,189,248,0.4)]">
               {/* Concentric vinyl groove rings */}
               <div
-                className={`w-full h-full rounded-full border border-dashed border-[#74c69d]/40 flex items-center justify-center ${
+                className={`w-full h-full rounded-full border border-dashed border-[#7dd3fc]/40 flex items-center justify-center ${
                   isPlaying ? 'animate-spin duration-4000' : ''
                 }`}
               >
-                <div className="w-10 h-10 rounded-full border border-dashed border-[#52b788]/30 flex items-center justify-center">
+                <div className="w-10 h-10 rounded-full border border-dashed border-[#38bdf8]/30 flex items-center justify-center">
                   <span className="text-lg">{currentTrack.symbol}</span>
                 </div>
               </div>
 
               {/* Glowing Center Spindle */}
-              <div className="absolute w-2.5 h-2.5 rounded-full bg-[#ffd700] shadow-[0_0_8px_#ffd700]" />
+              <div className="absolute w-2.5 h-2.5 rounded-full bg-[#f472b6] shadow-[0_0_8px_#f472b6]" />
 
               {/* Realistic Turntable Tonearm that pivots onto the vinyl when playing */}
               <div
@@ -577,37 +577,37 @@ export function RomanticAudioPlayer() {
                 }}
                 className="absolute -top-1 -right-1 w-6 h-8 pointer-events-none"
               >
-                <div className="w-0.5 h-6 bg-gradient-to-b from-[#ffd700] to-[#74c69d] rounded-full mx-auto" />
-                <div className="w-1.5 h-1.5 bg-[#ffd700] rounded-sm mx-auto shadow-sm" />
+                <div className="w-0.5 h-6 bg-gradient-to-b from-[#f472b6] to-[#38bdf8] rounded-full mx-auto" />
+                <div className="w-1.5 h-1.5 bg-[#f472b6] rounded-sm mx-auto shadow-sm" />
               </div>
             </div>
 
             {/* Title, Artist & Mood */}
             <div className="flex-1 min-w-0 text-left">
               <div className="flex items-center gap-1.5 mb-0.5">
-                <span className="px-1.5 py-0.5 rounded-md bg-[#133324] border border-[#52b788]/40 text-[9px] font-mono text-[#ffd700] font-bold">
+                <span className="px-1.5 py-0.5 rounded-md bg-[#0c2342] border border-[#38bdf8]/40 text-[9px] font-mono text-[#f472b6] font-bold">
                   TRACK {currentTrackIdx + 1}/{romanticAudio.trackList.length}
                 </span>
-                <span className="text-[10px] text-[#74c69d] font-serif italic truncate">
+                <span className="text-[10px] text-[#7dd3fc] font-serif italic truncate">
                   {currentTrack.mood}
                 </span>
               </div>
-              <p className="font-playfair text-base font-bold text-[#f0fdf4] truncate">
+              <p className="font-playfair text-base font-bold text-[#f0f9ff] truncate">
                 {currentTrack.name}
               </p>
-              <p className="font-serif italic text-xs text-[#a3d9b8] truncate">
+              <p className="font-serif italic text-xs text-[#bae6fd] truncate">
                 {currentTrack.artist}
               </p>
             </div>
           </div>
 
           {/* 16-Bar Animated Reactive Soundwave Equalizer */}
-          <div className="flex items-end justify-center gap-1 h-5 mb-3 px-2 py-0.5 rounded-xl bg-[#081a12]/50 border border-[#52b788]/20">
+          <div className="flex items-end justify-center gap-1 h-5 mb-3 px-2 py-0.5 rounded-xl bg-[#081a2e]/50 border border-[#38bdf8]/20">
             {[0.5, 0.9, 0.3, 0.7, 1.0, 0.4, 0.8, 0.6, 0.9, 0.5, 0.8, 0.4, 1.0, 0.6, 0.3, 0.7].map(
               (mult, idx) => (
                 <span
                   key={idx}
-                  className={`flex-1 rounded-full bg-gradient-to-t from-[#52b788] via-[#74c69d] to-[#ffd700] transition-all duration-200 ${
+                  className={`flex-1 rounded-full bg-gradient-to-t from-[#38bdf8] via-[#7dd3fc] to-[#f472b6] transition-all duration-200 ${
                     isPlaying ? 'animate-pulse' : 'h-1 opacity-40'
                   }`}
                   style={{
@@ -631,16 +631,16 @@ export function RomanticAudioPlayer() {
                 value={currentTime}
                 onChange={handleSeek}
                 style={{
-                  background: `linear-gradient(to right, #ffd700 ${progressPercent}%, #0f2d1e ${progressPercent}%)`,
+                  background: `linear-gradient(to right, #f472b6 ${progressPercent}%, #0c203b ${progressPercent}%)`,
                 }}
-                className="w-full h-1.5 rounded-lg appearance-none cursor-pointer accent-[#ffd700]"
+                className="w-full h-1.5 rounded-lg appearance-none cursor-pointer accent-[#f472b6]"
               />
             </div>
-            <div className="flex justify-between items-center text-[10px] font-mono text-[#a3d9b8] mt-1.5">
+            <div className="flex justify-between items-center text-[10px] font-mono text-[#7dd3fc] mt-1.5">
               <span className="flex items-center gap-1">
                 <span>{formatTime(currentTime)}</span>
               </span>
-              <span className="text-[#ffd700]/80">
+              <span className="text-[#f472b6]/90">
                 {duration > 0 ? formatTime(duration) : currentTrack.estimatedDuration}
               </span>
             </div>
@@ -653,8 +653,8 @@ export function RomanticAudioPlayer() {
               onClick={() => romanticAudio.toggleShuffle()}
               className={`p-1.5 rounded-full border transition-all cursor-pointer ${
                 isShuffle
-                  ? 'bg-[#1b4332] text-[#ffd700] border-[#ffd700]/70 shadow-[0_0_8px_#ffd700]'
-                  : 'bg-[#081a12]/70 text-[#74c69d]/70 border-[#52b788]/25 hover:text-[#f0fdf4]'
+                  ? 'bg-[#0c2545] text-[#f472b6] border-[#f472b6]/70 shadow-[0_0_8px_#f472b6]'
+                  : 'bg-[#08182b]/70 text-[#7dd3fc]/70 border-[#38bdf8]/25 hover:text-[#f0f9ff]'
               }`}
               title={isShuffle ? 'Shuffle: ON' : 'Shuffle: OFF'}
             >
@@ -664,7 +664,7 @@ export function RomanticAudioPlayer() {
             {/* Quick 10s Rewind */}
             <button
               onClick={() => romanticAudio.skip(-10)}
-              className="p-1.5 rounded-full bg-[#081a12]/70 text-[#a3d9b8] hover:text-[#ffd700] border border-[#52b788]/25 transition-all cursor-pointer"
+              className="p-1.5 rounded-full bg-[#08182b]/70 text-[#7dd3fc] hover:text-[#f472b6] border border-[#38bdf8]/25 transition-all cursor-pointer"
               title="Rewind 10 seconds"
             >
               <RotateCcw className="w-3.5 h-3.5" />
@@ -673,16 +673,16 @@ export function RomanticAudioPlayer() {
             {/* Previous Track */}
             <button
               onClick={handlePrev}
-              className="p-2 rounded-full bg-[#0e271c] hover:bg-[#1b4332] text-[#d8f3dc] hover:text-[#ffd700] border border-[#52b788]/40 shadow hover:scale-110 active:scale-95 transition-all cursor-pointer"
+              className="p-2 rounded-full bg-[#0a1e36] hover:bg-[#16355d] text-[#e0f2fe] hover:text-[#f472b6] border border-[#38bdf8]/40 shadow hover:scale-110 active:scale-95 transition-all cursor-pointer"
               title="Previous Track"
             >
               <SkipBack className="w-4 h-4" />
             </button>
 
-            {/* Play/Pause Button (Grand Emerald & Gold Button) */}
+            {/* Play/Pause Button (Grand Sky Blue & Pink Button) */}
             <button
               onClick={toggleMusic}
-              className="w-12 h-12 rounded-full bg-gradient-to-r from-[#2d6a4f] via-[#52b788] to-[#40916c] hover:from-[#40916c] hover:to-[#74c69d] text-white flex items-center justify-center shadow-[0_0_25px_rgba(82,183,136,0.7)] border-2 border-[#ffd700] hover:scale-105 active:scale-95 transition-all cursor-pointer"
+              className="w-12 h-12 rounded-full bg-gradient-to-r from-[#0284c7] via-[#ec4899] to-[#db2777] hover:from-[#0369a1] hover:to-[#be185d] text-white flex items-center justify-center shadow-[0_0_25px_rgba(236,72,153,0.7)] border-2 border-white hover:scale-105 active:scale-95 transition-all cursor-pointer"
               title={isPlaying ? 'Pause' : 'Play'}
             >
               {isPlaying ? (
@@ -695,7 +695,7 @@ export function RomanticAudioPlayer() {
             {/* Next Track */}
             <button
               onClick={handleNext}
-              className="p-2 rounded-full bg-[#0e271c] hover:bg-[#1b4332] text-[#d8f3dc] hover:text-[#ffd700] border border-[#52b788]/40 shadow hover:scale-110 active:scale-95 transition-all cursor-pointer"
+              className="p-2 rounded-full bg-[#0a1e36] hover:bg-[#16355d] text-[#e0f2fe] hover:text-[#f472b6] border border-[#38bdf8]/40 shadow hover:scale-110 active:scale-95 transition-all cursor-pointer"
               title="Next Track"
             >
               <SkipForward className="w-4 h-4" />
@@ -704,7 +704,7 @@ export function RomanticAudioPlayer() {
             {/* Quick 10s Forward */}
             <button
               onClick={() => romanticAudio.skip(10)}
-              className="p-1.5 rounded-full bg-[#081a12]/70 text-[#a3d9b8] hover:text-[#ffd700] border border-[#52b788]/25 transition-all cursor-pointer"
+              className="p-1.5 rounded-full bg-[#08182b]/70 text-[#7dd3fc] hover:text-[#f472b6] border border-[#38bdf8]/25 transition-all cursor-pointer"
               title="Forward 10 seconds"
             >
               <RotateCw className="w-3.5 h-3.5" />
@@ -715,8 +715,8 @@ export function RomanticAudioPlayer() {
               onClick={() => romanticAudio.toggleRepeat()}
               className={`p-1.5 rounded-full border transition-all cursor-pointer ${
                 repeatMode !== 'off'
-                  ? 'bg-[#1b4332] text-[#ffd700] border-[#ffd700]/70 shadow-[0_0_8px_#ffd700]'
-                  : 'bg-[#081a12]/70 text-[#74c69d]/70 border-[#52b788]/25 hover:text-[#f0fdf4]'
+                  ? 'bg-[#0c2545] text-[#f472b6] border-[#f472b6]/70 shadow-[0_0_8px_#f472b6]'
+                  : 'bg-[#08182b]/70 text-[#7dd3fc]/70 border-[#38bdf8]/25 hover:text-[#f0f9ff]'
               }`}
               title={
                 repeatMode === 'one'
@@ -735,18 +735,18 @@ export function RomanticAudioPlayer() {
           </div>
 
           {/* Volume Slider Bar */}
-          <div className="flex items-center gap-2.5 px-3 py-1.5 rounded-xl bg-[#081a12]/70 border border-[#52b788]/25 mb-3">
+          <div className="flex items-center gap-2.5 px-3 py-1.5 rounded-xl bg-[#08182b]/70 border border-[#38bdf8]/25 mb-3">
             <button
               onClick={toggleMute}
-              className="text-[#a3d9b8] hover:text-[#ffd700] transition-colors cursor-pointer"
+              className="text-[#7dd3fc] hover:text-[#f472b6] transition-colors cursor-pointer"
               title={isMuted ? 'Unmute' : 'Mute'}
             >
               {isMuted || volume === 0 ? (
                 <VolumeX className="w-4 h-4 text-[#ff8fa3]" />
               ) : volume < 0.5 ? (
-                <Volume1 className="w-4 h-4 text-[#74c69d]" />
+                <Volume1 className="w-4 h-4 text-[#38bdf8]" />
               ) : (
-                <Volume2 className="w-4 h-4 text-[#74c69d]" />
+                <Volume2 className="w-4 h-4 text-[#38bdf8]" />
               )}
             </button>
 
@@ -757,33 +757,33 @@ export function RomanticAudioPlayer() {
               step="0.05"
               value={volume}
               onChange={handleVolumeChange}
-              className="w-full h-1.5 bg-[#0f2d1e] rounded-lg appearance-none cursor-pointer accent-[#52b788]"
+              className="w-full h-1.5 bg-[#0a1e36] rounded-lg appearance-none cursor-pointer accent-[#f472b6]"
               title={`Volume: ${Math.round(volume * 100)}%`}
             />
 
-            <span className="text-[10px] font-mono text-[#a3d9b8] w-7 text-right">
+            <span className="text-[10px] font-mono text-[#7dd3fc] w-7 text-right">
               {Math.round(volume * 100)}%
             </span>
           </div>
 
           {/* Interactive Playlist Accordion Header */}
-          <div className="border-t border-[#52b788]/25 pt-2.5">
+          <div className="border-t border-[#38bdf8]/25 pt-2.5">
             <div
               onClick={() => setShowPlaylist(!showPlaylist)}
               className="flex items-center justify-between mb-1.5 px-1 cursor-pointer group"
             >
               <div className="flex items-center gap-1.5">
-                <ListMusic className="w-3.5 h-3.5 text-[#ffd700]" />
-                <span className="text-[10px] font-sans uppercase tracking-wider text-[#a3d9b8] font-bold group-hover:text-[#ffd700] transition-colors">
+                <ListMusic className="w-3.5 h-3.5 text-[#f472b6]" />
+                <span className="text-[10px] font-sans uppercase tracking-wider text-[#7dd3fc] font-bold group-hover:text-[#f472b6] transition-colors">
                   Playlist ({romanticAudio.trackList.length} Tracks)
                 </span>
               </div>
-              <div className="flex items-center gap-1.5 text-[10px] font-serif italic text-[#ffd700]">
+              <div className="flex items-center gap-1.5 text-[10px] font-serif italic text-[#f472b6]">
                 <span>{isPlaying ? '♪ Playing' : 'Paused'}</span>
                 {showPlaylist ? (
-                  <ChevronUp className="w-3 h-3 text-[#a3d9b8]" />
+                  <ChevronUp className="w-3.5 h-3.5 text-[#7dd3fc]" />
                 ) : (
-                  <ChevronDown className="w-3 h-3 text-[#a3d9b8]" />
+                  <ChevronDown className="w-3.5 h-3.5 text-[#7dd3fc]" />
                 )}
               </div>
             </div>
@@ -797,8 +797,8 @@ export function RomanticAudioPlayer() {
                     onClick={(e) => handleSelectTrack(i, e)}
                     className={`px-3 py-2 rounded-xl text-[11px] font-serif text-left transition-all flex items-center justify-between border cursor-pointer ${
                       currentTrackIdx === i
-                        ? 'bg-[#1b4332] text-[#ffd700] border-[#ffd700]/70 shadow-[0_0_14px_rgba(82,183,136,0.5)] font-bold'
-                        : 'bg-[#081a12]/60 text-[#d8f3dc] border-[#52b788]/30 hover:bg-[#123122] hover:border-[#74c69d]'
+                        ? 'bg-[#0c2545] text-[#f472b6] border-[#f472b6]/70 shadow-[0_0_14px_rgba(56,189,248,0.5)] font-bold'
+                        : 'bg-[#08182b]/60 text-[#e0f2fe] border-[#38bdf8]/30 hover:bg-[#0f2442] hover:border-[#f472b6]'
                     }`}
                   >
                     <div className="flex items-center gap-2.5 truncate">
@@ -807,7 +807,7 @@ export function RomanticAudioPlayer() {
                         <p className="truncate leading-tight font-medium">
                           {i + 1}. {track.name}
                         </p>
-                        <p className="text-[9px] text-[#74c69d] truncate leading-tight mt-0.5">
+                        <p className="text-[9px] text-[#7dd3fc] truncate leading-tight mt-0.5">
                           {track.artist}
                         </p>
                       </div>
@@ -819,9 +819,9 @@ export function RomanticAudioPlayer() {
                       </span>
                       {currentTrackIdx === i && isPlaying && (
                         <span className="flex items-end gap-0.5 h-3">
-                          <span className="w-0.5 h-3 bg-[#ffd700] animate-pulse" />
-                          <span className="w-0.5 h-2 bg-[#ffd700] animate-pulse delay-75" />
-                          <span className="w-0.5 h-3 bg-[#ffd700] animate-pulse delay-150" />
+                          <span className="w-0.5 h-3 bg-[#f472b6] animate-pulse" />
+                          <span className="w-0.5 h-2 bg-[#f472b6] animate-pulse delay-75" />
+                          <span className="w-0.5 h-3 bg-[#f472b6] animate-pulse delay-150" />
                         </span>
                       )}
                     </div>
@@ -832,8 +832,8 @@ export function RomanticAudioPlayer() {
           </div>
 
           {/* Bottom Romantic Tagline */}
-          <div className="mt-3 pt-2 border-t border-[#52b788]/20 flex items-center justify-center gap-1.5 text-[10px] text-[#a3d9b8]/80 font-serif italic text-center">
-            <Sparkles className="w-2.5 h-2.5 text-[#ffd700]" />
+          <div className="mt-3 pt-2 border-t border-[#38bdf8]/20 flex items-center justify-center gap-1.5 text-[10px] text-[#7dd3fc]/80 font-serif italic text-center">
+            <Sparkles className="w-2.5 h-2.5 text-[#f472b6]" />
             <span>Dedicated with eternal love to Pookie 💖</span>
           </div>
         </div>

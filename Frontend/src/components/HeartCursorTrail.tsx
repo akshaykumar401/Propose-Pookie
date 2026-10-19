@@ -74,7 +74,7 @@ export function HeartCursorTrail() {
     }
 
     const particles: Particle[] = [];
-    const colors = ['#ffd700', '#74c69d', '#52b788', '#ff9ebb', '#ffffff', '#ff4d6d', '#f7d070'];
+    const colors = ['#38bdf8', '#7dd3fc', '#bae6fd', '#f472b6', '#f9a8d4', '#ec4899', '#ffffff', '#ffd700'];
 
     const createSparkle = (x: number, y: number, count = 1, isBurst = false) => {
       for (let i = 0; i < count; i++) {
@@ -89,7 +89,7 @@ export function HeartCursorTrail() {
           vx: Math.cos(angle) * speed,
           vy: Math.sin(angle) * speed + (isBurst ? -0.5 : 0.15),
           size: isBurst ? Math.random() * 4.5 + 2.5 : Math.random() * 2.8 + 1.2,
-          color: type === 'heart' ? (Math.random() > 0.5 ? '#ff4d6d' : '#ff9ebb') : colors[Math.floor(Math.random() * colors.length)],
+          color: type === 'heart' ? (Math.random() > 0.5 ? '#f472b6' : '#ec4899') : colors[Math.floor(Math.random() * colors.length)],
           alpha: 1,
           decay: isBurst ? Math.random() * 0.02 + 0.012 : Math.random() * 0.028 + 0.018,
           rotation: Math.random() * Math.PI * 2,
@@ -318,29 +318,29 @@ export function HeartCursorTrail() {
       {/* 2. Expanding Click Shockwave Ripple Ring */}
       <div
         ref={rippleRingRef}
-        className="hidden md:block pointer-events-none fixed top-0 left-0 z-[999998] w-8 h-8 rounded-full border-2 border-[#ffd700] select-none will-change-transform"
+        className="hidden md:block pointer-events-none fixed top-0 left-0 z-[999998] w-8 h-8 rounded-full border-2 border-[#38bdf8] select-none will-change-transform"
       />
 
-      {/* 3. Celestial Botanical Follower Halo */}
+      {/* 3. Celestial Romantic Follower Halo */}
       <div
         ref={outerRingRef}
-        className="hidden md:block pointer-events-none fixed top-0 left-0 z-[999999] w-9 h-9 rounded-full border-2 border-[#74c69d]/85 bg-[#133324]/20 shadow-[0_0_14px_rgba(82,183,136,0.45)] flex items-center justify-center select-none will-change-transform backdrop-blur-[1px]"
+        className="hidden md:block pointer-events-none fixed top-0 left-0 z-[999999] w-9 h-9 rounded-full border-2 border-[#f472b6]/85 bg-[#0e223d]/25 shadow-[0_0_14px_rgba(56,189,248,0.5)] flex items-center justify-center select-none will-change-transform backdrop-blur-[1px]"
       >
         {/* Revolving Orbital Star Dust Ring with 4 Cardinal Stars */}
         <div className="w-full h-full rounded-full border border-dashed border-[#ffd700]/50 animate-spin duration-6000 pointer-events-none relative flex items-center justify-center">
-          <span className="absolute -top-1 w-1 h-1 rounded-full bg-[#ffd700] shadow-[0_0_6px_#ffd700]" />
-          <span className="absolute -bottom-1 w-1 h-1 rounded-full bg-[#74c69d] shadow-[0_0_6px_#74c69d]" />
+          <span className="absolute -top-1 w-1 h-1 rounded-full bg-[#f472b6] shadow-[0_0_6px_#f472b6]" />
+          <span className="absolute -bottom-1 w-1 h-1 rounded-full bg-[#38bdf8] shadow-[0_0_6px_#38bdf8]" />
           <span className="absolute -left-1 w-1 h-1 rounded-full bg-[#ffd700] shadow-[0_0_6px_#ffd700]" />
-          <span className="absolute -right-1 w-1 h-1 rounded-full bg-[#74c69d] shadow-[0_0_6px_#74c69d]" />
+          <span className="absolute -right-1 w-1 h-1 rounded-full bg-[#f472b6] shadow-[0_0_6px_#f472b6]" />
         </div>
 
-        {/* Central Beating Emerald Gem Dot */}
-        <div className="absolute w-2 h-2 rounded-full bg-gradient-to-tr from-[#52b788] via-[#ffd700] to-[#74c69d] shadow-[0_0_8px_#52b788] pointer-events-none" />
+        {/* Central Beating Pink & Sky Gem Dot */}
+        <div className="absolute w-2 h-2 rounded-full bg-gradient-to-tr from-[#38bdf8] via-[#f472b6] to-[#ffd700] shadow-[0_0_8px_#38bdf8] pointer-events-none" />
 
         {/* Floating Romantic Heart Badge on Interactive Hover */}
         <div
           ref={hoverBadgeRef}
-          className="absolute -top-4 -right-3 px-1.5 py-0.5 rounded-full bg-[#1b4332]/95 border border-[#ffd700]/80 shadow-[0_0_10px_rgba(255,215,0,0.6)] text-[10px] text-[#ffd700] pointer-events-none opacity-0 scale-0 select-none flex items-center gap-0.5 font-bold"
+          className="absolute -top-4 -right-3 px-1.5 py-0.5 rounded-full bg-[#0f1f38]/95 border border-[#f472b6]/80 shadow-[0_0_10px_rgba(244,114,182,0.6)] text-[10px] text-[#f472b6] pointer-events-none opacity-0 scale-0 select-none flex items-center gap-0.5 font-bold"
         >
           <span>💖</span>
         </div>

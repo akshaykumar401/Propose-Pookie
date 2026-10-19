@@ -11,7 +11,7 @@ interface Firefly {
   color: string;
 }
 
-const FIREFLY_COLORS = ['#74c69d', '#a3d9b8', '#ffd700', '#52b788', '#d8f3dc'];
+const FIREFLY_COLORS = ['#38bdf8', '#7dd3fc', '#f472b6', '#f9a8d4', '#ffd700', '#bae6fd', '#fbcfe8'];
 
 export function BotanicalAmbience() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -33,7 +33,7 @@ export function BotanicalAmbience() {
     };
     window.addEventListener('resize', handleResize);
 
-    // Glowing botanical fireflies & floating light orbs
+    // Glowing sky blue & pink celestial fireflies & floating light orbs
     const count = Math.min(45, Math.floor(width / 30));
     const fireflies: Firefly[] = Array.from({ length: count }, () => ({
       x: Math.random() * width,
@@ -64,7 +64,7 @@ export function BotanicalAmbience() {
       // Draw subtle stars
       stars.forEach((s) => {
         const flicker = Math.sin(t * 2 + s.x) * 0.3;
-        ctx.fillStyle = `rgba(216, 243, 220, ${Math.max(0.1, s.alpha + flicker)})`;
+        ctx.fillStyle = `rgba(224, 242, 254, ${Math.max(0.1, s.alpha + flicker)})`;
         ctx.beginPath();
         ctx.arc(s.x, s.y, s.size, 0, Math.PI * 2);
         ctx.fill();
@@ -116,8 +116,8 @@ export function BotanicalAmbience() {
 
   return (
     <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-      {/* Deep botanical romantic gradient */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#183d2c]/60 via-[#0d2319]/80 to-[#06120d]" />
+      {/* Deep sky twilight romantic gradient with soft pink glow */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#172554]/60 via-[#1e1b4b]/40 to-[#060e1e]" />
       {/* Canvas for stars and fireflies */}
       <canvas ref={canvasRef} className="absolute inset-0" />
     </div>

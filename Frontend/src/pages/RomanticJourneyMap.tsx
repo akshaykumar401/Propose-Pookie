@@ -86,27 +86,27 @@ export function RomanticJourneyMap({ onPrevPage, onNextPage }: Props) {
     >
       {/* Header */}
       <div className="relative z-10 text-center max-w-2xl pt-1 flex flex-col items-center">
-        <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-0.5 sm:py-1 rounded-full bg-[#133324]/85 border border-[#52b788]/50 text-[10px] sm:text-xs tracking-[0.1em] sm:tracking-[0.25em] text-[#ffd700] uppercase mb-1 shadow-md backdrop-blur-md max-w-[90vw]">
-          <Compass className="w-3.5 h-3.5 text-[#ffd700] animate-spin duration-10000 shrink-0" />
+        <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-0.5 sm:py-1 rounded-full bg-[#0f2442]/85 border border-[#38bdf8]/50 text-[10px] sm:text-xs tracking-[0.1em] sm:tracking-[0.25em] text-[#ffd700] uppercase mb-1 shadow-md backdrop-blur-md max-w-[90vw]">
+          <Compass className="w-3.5 h-3.5 text-[#f472b6] animate-spin duration-10000 shrink-0" />
           <span className="truncate">Chapter II • The Map of Our Journey</span>
-          <Compass className="w-3.5 h-3.5 text-[#ffd700] animate-spin duration-10000 shrink-0" />
+          <Compass className="w-3.5 h-3.5 text-[#f472b6] animate-spin duration-10000 shrink-0" />
         </div>
 
-        <h2 className="font-playfair text-xl sm:text-4xl font-bold mint-gradient-text drop-shadow-[0_4px_25px_rgba(82,183,136,0.6)] mb-0.5 max-w-full px-1">
+        <h2 className="font-playfair text-xl sm:text-4xl font-bold mint-gradient-text drop-shadow-[0_4px_25px_rgba(56,189,248,0.6)] mb-0.5 max-w-full px-1">
           The Trail That Led to You
         </h2>
 
-        <p className="font-serif italic text-xs sm:text-sm text-[#d8f3dc]">
+        <p className="font-serif italic text-xs sm:text-sm text-[#bae6fd]">
           "Every step, every street, every turn was gently guiding my heart to yours."
         </p>
       </div>
 
-      {/* ── THE INTERACTIVE BOTANICAL MAP CANVAS ── */}
-      <div className="relative z-10 w-full max-w-4xl bg-gradient-to-b from-[#132f22]/95 via-[#183d2c]/95 to-[#0e241a]/95 rounded-3xl p-3 sm:p-5 border-2 border-[#52b788]/50 shadow-[0_20px_60px_rgba(0,0,0,0.85)] my-auto flex flex-col justify-between">
+      {/* ── THE INTERACTIVE ROMANTIC MAP CANVAS ── */}
+      <div className="relative z-10 w-full max-w-4xl bg-gradient-to-b from-[#0c2445]/95 via-[#12315a]/95 to-[#091a32]/95 rounded-3xl p-3 sm:p-5 border-2 border-[#38bdf8]/50 shadow-[0_20px_60px_rgba(0,0,0,0.85)] my-auto flex flex-col justify-between">
         {/* Top Map Bar with Auto-Walk Toggle */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 pb-2 border-b border-[#52b788]/30">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 pb-2 border-b border-[#38bdf8]/30">
           <div className="flex items-center gap-1.5 sm:gap-2 text-xs font-serif text-[#ffd700]">
-            <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#74c69d] shrink-0" />
+            <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#f472b6] shrink-0" />
             <span className="font-bold tracking-wider uppercase truncate">
               Stop {activeStop + 1}/{MAP_STOPS.length}: {current.title}
             </span>
@@ -116,23 +116,23 @@ export function RomanticJourneyMap({ onPrevPage, onNextPage }: Props) {
             onClick={() => setIsAutoWalking(!isAutoWalking)}
             className={`self-start sm:self-auto px-2.5 sm:px-3 py-1 rounded-full text-[11px] sm:text-xs font-serif font-bold flex items-center gap-1.5 transition-all border cursor-pointer ${
               isAutoWalking
-                ? 'bg-[#2d6a4f] text-white border-[#ffd700] shadow-[0_0_15px_rgba(82,183,136,0.8)] animate-pulse'
-                : 'bg-[#0f281e] text-[#ffd700] border-[#ffd700]/50 hover:bg-[#1b4332]'
+                ? 'bg-[#0284c7] text-white border-[#f472b6] shadow-[0_0_15px_rgba(244,114,182,0.8)] animate-pulse'
+                : 'bg-[#0c2445] text-[#f472b6] border-[#38bdf8]/50 hover:bg-[#12335e]'
             }`}
           >
-            {isAutoWalking ? <Pause className="w-3 h-3" /> : <Play className="w-3 h-3 fill-[#ffd700]" />}
+            {isAutoWalking ? <Pause className="w-3 h-3" /> : <Play className="w-3 h-3 fill-[#f472b6]" />}
             <span className="hidden sm:inline">{isAutoWalking ? 'Traveling Trail...' : 'Auto-Tour Journey'}</span>
             <span className="sm:hidden">{isAutoWalking ? 'Traveling...' : 'Auto-Tour'}</span>
           </button>
         </div>
 
-        {/* ── VINTAGE BOTANICAL MAP SURFACE ── */}
-        <div className="relative w-full h-[160px] sm:h-[220px] my-2 rounded-2xl overflow-hidden bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#1d4734] via-[#133324] to-[#0b1c14] border border-[#52b788]/40">
+        {/* ── VINTAGE SKY & PINK MAP SURFACE ── */}
+        <div className="relative w-full h-[160px] sm:h-[220px] my-2 rounded-2xl overflow-hidden bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#0c284e] via-[#091f3d] to-[#051122] border border-[#38bdf8]/40">
           {/* Topo grid */}
-          <div className="absolute inset-0 opacity-15 pointer-events-none bg-[radial-gradient(#a3d9b8_1px,transparent_1px)] [background-size:24px_24px]" />
+          <div className="absolute inset-0 opacity-15 pointer-events-none bg-[radial-gradient(#7dd3fc_1px,transparent_1px)] [background-size:24px_24px]" />
 
           {/* Compass watermark */}
-          <div className="absolute top-2 right-4 pointer-events-none opacity-20 text-[#ffd700]">
+          <div className="absolute top-2 right-4 pointer-events-none opacity-20 text-[#38bdf8]">
             <Compass className="w-20 h-20 animate-spin duration-30000" />
           </div>
 
@@ -142,20 +142,20 @@ export function RomanticJourneyMap({ onPrevPage, onNextPage }: Props) {
             viewBox="0 0 100 100"
             preserveAspectRatio="none"
           >
-            {/* Emerald glow line */}
+            {/* Sky blue glow line */}
             <path
               d={pathD}
               fill="none"
-              stroke="#52b788"
+              stroke="#38bdf8"
               strokeWidth="1.8"
               strokeDasharray="2, 2"
               className="opacity-75"
             />
-            {/* Pulsing Gold Layer */}
+            {/* Pulsing Pink Layer */}
             <path
               d={pathD}
               fill="none"
-              stroke="#ffd700"
+              stroke="#f472b6"
               strokeWidth="0.9"
               strokeDasharray="1.5, 1.5"
             />
@@ -171,10 +171,10 @@ export function RomanticJourneyMap({ onPrevPage, onNextPage }: Props) {
             }}
           >
             <div className="relative flex flex-col items-center">
-              <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#52b788] to-[#ffd700] flex items-center justify-center text-sm shadow-[0_0_20px_#52b788] animate-bounce border-2 border-white">
-                <Footprints className="w-4 h-4 text-[#081c15]" />
+              <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#38bdf8] to-[#f472b6] flex items-center justify-center text-sm shadow-[0_0_20px_#38bdf8] animate-bounce border-2 border-white">
+                <Footprints className="w-4 h-4 text-white" />
               </div>
-              <span className="absolute -top-5 px-2 py-0.5 rounded-full bg-[#081c15]/90 text-[9px] font-serif text-[#ffd700] whitespace-nowrap border border-[#ffd700]/40">
+              <span className="absolute -top-5 px-2 py-0.5 rounded-full bg-[#081a2e]/90 text-[9px] font-serif text-[#f472b6] whitespace-nowrap border border-[#f472b6]/40">
                 Pookie & Buggu
               </span>
             </div>
@@ -199,10 +199,10 @@ export function RomanticJourneyMap({ onPrevPage, onNextPage }: Props) {
                 <div
                   className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center text-xs transition-all duration-300 ${
                     isActive
-                      ? 'scale-125 bg-gradient-to-tr from-[#52b788] to-[#ffd700] border-2 border-white shadow-[0_0_20px_#52b788]'
+                      ? 'scale-125 bg-gradient-to-tr from-[#38bdf8] to-[#f472b6] border-2 border-white shadow-[0_0_20px_#38bdf8]'
                       : isVisited
-                      ? 'bg-[#2d6a4f] text-white border border-[#ffd700]'
-                      : 'bg-[#10261c] text-[#ffd700]/70 border border-[#52b788]/40 hover:border-[#ffd700] hover:scale-110'
+                      ? 'bg-[#0284c7] text-white border border-[#f472b6]'
+                      : 'bg-[#081b33] text-[#7dd3fc]/70 border border-[#38bdf8]/40 hover:border-[#f472b6] hover:scale-110'
                   }`}
                 >
                   <span>{stop.icon}</span>
@@ -210,8 +210,8 @@ export function RomanticJourneyMap({ onPrevPage, onNextPage }: Props) {
                 <span
                   className={`hidden sm:block absolute top-7 left-1/2 -translate-x-1/2 text-[9px] font-serif font-bold whitespace-nowrap px-1.5 py-0.5 rounded-full ${
                     isActive
-                      ? 'bg-[#2d6a4f] text-[#ffd700] border border-[#ffd700]'
-                      : 'text-[#d8f3dc]/70 bg-black/60'
+                      ? 'bg-[#0284c7] text-[#f0f9ff] border border-[#38bdf8]'
+                      : 'text-[#bae6fd]/70 bg-black/60'
                   }`}
                 >
                   {stop.title.split(' ')[0]}
@@ -224,12 +224,12 @@ export function RomanticJourneyMap({ onPrevPage, onNextPage }: Props) {
         {/* ── ACTIVE STOP POSTCARD ── */}
         <div
           ref={cardRef}
-          className="w-full bg-[#0d2118]/90 rounded-2xl p-4 sm:p-5 border border-[#52b788]/40 grid grid-cols-1 md:grid-cols-12 gap-4 items-center"
+          className="w-full bg-[#091c33]/90 rounded-2xl p-4 sm:p-5 border border-[#38bdf8]/40 grid grid-cols-1 md:grid-cols-12 gap-4 items-center"
         >
           {/* Postcard Photo */}
           <div className="md:col-span-4 flex justify-center">
             <div className="p-2 bg-white/95 rounded-xl shadow-xl rotate-[-2deg] hover:rotate-0 transition-transform duration-300 w-full max-w-[210px]">
-              <div className="aspect-[4/3] rounded-lg overflow-hidden bg-[#0d2118]">
+              <div className="aspect-[4/3] rounded-lg overflow-hidden bg-[#0c2445]">
                 <img
                   src={current.image}
                   alt={current.title}
@@ -237,10 +237,10 @@ export function RomanticJourneyMap({ onPrevPage, onNextPage }: Props) {
                 />
               </div>
               <div className="pt-1.5 text-center">
-                <p className="font-script text-sm font-bold text-[#1b4332]">
+                <p className="font-script text-sm font-bold text-[#0369a1]">
                   {current.title}
                 </p>
-                <p className="font-serif text-[10px] text-[#40916c]">
+                <p className="font-serif text-[10px] text-[#db2777]">
                   {current.date}
                 </p>
               </div>
@@ -250,11 +250,11 @@ export function RomanticJourneyMap({ onPrevPage, onNextPage }: Props) {
           {/* Narrative Content */}
           <div className="md:col-span-8 flex flex-col justify-between text-left space-y-2">
             <div>
-              <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-[#52b788]/20 border border-[#52b788]/50 text-[11px] text-[#ffd700] uppercase tracking-wider mb-1">
-                <MapPin className="w-3 h-3 text-[#74c69d]" />
+              <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-[#38bdf8]/20 border border-[#38bdf8]/50 text-[11px] text-[#f472b6] uppercase tracking-wider mb-1">
+                <MapPin className="w-3 h-3 text-[#38bdf8]" />
                 <span>{current.locationName}</span>
               </div>
-              <h3 className="font-playfair text-lg sm:text-xl font-bold text-[#f0fdf4]">
+              <h3 className="font-playfair text-lg sm:text-xl font-bold text-[#f0f9ff]">
                 {current.title}
               </h3>
               <div className="flex items-center gap-1 text-xs text-[#ffd700] font-serif">
@@ -263,7 +263,7 @@ export function RomanticJourneyMap({ onPrevPage, onNextPage }: Props) {
               </div>
             </div>
 
-            <p className="font-serif text-xs sm:text-sm text-[#d8f3dc] leading-relaxed">
+            <p className="font-serif text-xs sm:text-sm text-[#bae6fd] leading-relaxed">
               "{current.story}"
             </p>
 
@@ -275,14 +275,14 @@ export function RomanticJourneyMap({ onPrevPage, onNextPage }: Props) {
                     setShowWhisper(true);
                     romanticAudio.playChime('heart');
                   }}
-                  className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#52b788]/20 hover:bg-[#52b788]/35 border border-[#74c69d]/50 text-xs font-serif text-[#ffd700] cursor-pointer transition-all"
+                  className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#f472b6]/20 hover:bg-[#f472b6]/35 border border-[#f472b6]/50 text-xs font-serif text-[#f472b6] cursor-pointer transition-all"
                 >
-                  <Eye className="w-3.5 h-3.5 text-[#74c69d]" />
+                  <Eye className="w-3.5 h-3.5 text-[#f472b6]" />
                   <span>Tap to reveal Buggu's secret whisper...</span>
                 </button>
               ) : (
-                <div className="p-2.5 rounded-xl bg-[#091a13]/90 border border-[#ffd700]/50 text-xs font-serif italic text-[#fef08a] animate-fadeIn">
-                  <span className="text-[#ffd700] font-bold not-italic">Buggu's Whisper: </span>
+                <div className="p-2.5 rounded-xl bg-[#08182d]/90 border border-[#f472b6]/50 text-xs font-serif italic text-[#fce7f3] animate-fadeIn">
+                  <span className="text-[#f472b6] font-bold not-italic">Buggu's Whisper: </span>
                   "{current.secretWhisper}"
                 </div>
               )}
@@ -295,7 +295,7 @@ export function RomanticJourneyMap({ onPrevPage, onNextPage }: Props) {
       <div className="relative z-10 pt-2 pb-1 w-full max-w-4xl flex items-center justify-between gap-2">
         <button
           onClick={onPrevPage}
-          className="px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#133324] hover:bg-[#1b4332] border border-[#52b788]/40 text-xs font-serif text-[#d8f3dc] flex items-center gap-1.5 transition-all cursor-pointer shadow"
+          className="px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#0c2445] hover:bg-[#12335e] border border-[#38bdf8]/40 text-xs font-serif text-[#bae6fd] flex items-center gap-1.5 transition-all cursor-pointer shadow"
         >
           <ArrowLeft className="w-3.5 h-3.5 shrink-0" />
           <span className="hidden sm:inline">Chapter I: Love Letter</span>
@@ -304,7 +304,7 @@ export function RomanticJourneyMap({ onPrevPage, onNextPage }: Props) {
 
         <button
           onClick={onNextPage}
-          className="px-4 sm:px-5 py-1.5 sm:py-2 rounded-full bg-gradient-to-r from-[#2d6a4f] via-[#52b788] to-[#40916c] hover:from-[#40916c] hover:to-[#52b788] text-white text-xs sm:text-sm font-serif font-bold tracking-wider shadow-[0_0_20px_rgba(82,183,136,0.5)] flex items-center gap-1.5 transition-all cursor-pointer"
+          className="px-4 sm:px-5 py-1.5 sm:py-2 rounded-full bg-gradient-to-r from-[#0284c7] via-[#ec4899] to-[#db2777] hover:from-[#0369a1] hover:to-[#be185d] text-white text-xs sm:text-sm font-serif font-bold tracking-wider shadow-[0_0_20px_rgba(236,72,153,0.5)] flex items-center gap-1.5 transition-all cursor-pointer"
         >
           <span className="hidden sm:inline">Chapter III: Scrapbook Moments</span>
           <span className="sm:hidden">Next 📸</span>

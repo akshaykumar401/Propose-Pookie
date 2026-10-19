@@ -14,12 +14,13 @@ interface FallingFlora {
 }
 
 const FLORA_COLORS = [
-  '#a3d9b8', // light sage
-  '#74c69d', // fresh mint
-  '#52b788', // emerald leaf
-  '#b7e4c7', // pale mint
-  '#ffb4c2', // blush petal
-  '#f7d070', // gold sparkle
+  '#7dd3fc', // sky blue light
+  '#38bdf8', // sky blue vivid
+  '#bae6fd', // soft pastel sky
+  '#f472b6', // romantic pink
+  '#f9a8d4', // soft pink petal
+  '#fbcfe8', // blush pink
+  '#ffd700', // starlight gold
 ];
 
 export function RosePetalsOverlay() {
@@ -46,7 +47,7 @@ export function RosePetalsOverlay() {
     const items: FallingFlora[] = Array.from({ length: count }, () => ({
       x: Math.random() * width,
       y: Math.random() * height,
-      size: 10 + Math.random() * 14,
+      size: 9 + Math.random() * 13,
       speedY: 0.5 + Math.random() * 1.1,
       speedX: (Math.random() - 0.5) * 0.7,
       rotation: Math.random() * Math.PI * 2,
@@ -63,18 +64,19 @@ export function RosePetalsOverlay() {
       ctx.globalAlpha = f.opacity;
       ctx.fillStyle = f.color;
 
+      // Romantic curved petal shape
       ctx.beginPath();
       ctx.moveTo(0, -f.size);
-      ctx.quadraticCurveTo(f.size * 0.6, 0, 0, f.size);
-      ctx.quadraticCurveTo(-f.size * 0.6, 0, 0, -f.size);
+      ctx.bezierCurveTo(f.size * 0.75, -f.size * 0.3, f.size * 0.65, f.size * 0.8, 0, f.size);
+      ctx.bezierCurveTo(-f.size * 0.65, f.size * 0.8, -f.size * 0.75, -f.size * 0.3, 0, -f.size);
       ctx.fill();
 
-      // Leaf center rib
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.3)';
+      // Soft starlight center rib
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.45)';
       ctx.lineWidth = 0.8;
       ctx.beginPath();
-      ctx.moveTo(0, -f.size * 0.8);
-      ctx.lineTo(0, f.size * 0.8);
+      ctx.moveTo(0, -f.size * 0.7);
+      ctx.lineTo(0, f.size * 0.7);
       ctx.stroke();
 
       ctx.restore();

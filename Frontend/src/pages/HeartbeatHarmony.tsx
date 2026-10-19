@@ -78,17 +78,17 @@ export function HeartbeatHarmony({ onPrevPage, onNextPage }: Props) {
     >
       {/* Header */}
       <div className="relative z-10 text-center max-w-2xl pt-1 flex flex-col items-center">
-        <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-0.5 sm:py-1 rounded-full bg-[#133324]/85 border border-[#52b788]/50 text-[10px] sm:text-xs tracking-[0.1em] sm:tracking-[0.25em] text-[#ffd700] uppercase mb-1 shadow-md backdrop-blur-md max-w-[90vw]">
+        <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-0.5 sm:py-1 rounded-full bg-[#0c2445]/85 border border-[#38bdf8]/50 text-[10px] sm:text-xs tracking-[0.1em] sm:tracking-[0.25em] text-[#ffd700] uppercase mb-1 shadow-md backdrop-blur-md max-w-[90vw]">
           <Music2 className="w-3.5 h-3.5 text-[#ffd700] shrink-0" />
           <span className="truncate">{PROPOSAL_DATA.senses.badge}</span>
           <Music2 className="w-3.5 h-3.5 text-[#ffd700] shrink-0" />
         </div>
 
-        <h2 className="font-playfair text-xl sm:text-4xl font-bold mint-gradient-text drop-shadow-[0_4px_25px_rgba(82,183,136,0.6)] mb-0.5 max-w-full px-1">
+        <h2 className="font-playfair text-xl sm:text-4xl font-bold mint-gradient-text drop-shadow-[0_4px_25px_rgba(56,189,248,0.6)] mb-0.5 max-w-full px-1">
           {PROPOSAL_DATA.senses.title}
         </h2>
 
-        <p className="font-serif italic text-xs sm:text-sm text-[#d8f3dc]">
+        <p className="font-serif italic text-xs sm:text-sm text-[#bae6fd]">
           {PROPOSAL_DATA.senses.subtitle}
         </p>
       </div>
@@ -96,11 +96,11 @@ export function HeartbeatHarmony({ onPrevPage, onNextPage }: Props) {
       {/* Main Interactive Grid */}
       <div className="relative z-10 w-full max-w-4xl flex-1 grid grid-cols-1 md:grid-cols-12 gap-5 items-center my-auto py-1">
         {/* LEFT: INTERACTIVE EMERALD HEARTBEAT SENSOR */}
-        <div className="md:col-span-6 w-full botanical-glass p-5 sm:p-6 rounded-3xl border border-[#52b788]/40 shadow-[0_20px_50px_rgba(0,0,0,0.85)] flex flex-col items-center text-center">
-          <span className="font-serif italic text-xs tracking-widest text-[#ffd700] uppercase mb-1">
+        <div className="md:col-span-6 w-full botanical-glass p-5 sm:p-6 rounded-3xl border border-[#38bdf8]/40 shadow-[0_20px_50px_rgba(0,0,0,0.85)] flex flex-col items-center text-center">
+          <span className="font-serif italic text-xs tracking-widest text-[#f472b6] uppercase mb-1">
             Biometric Love Resonance
           </span>
-          <h3 className="font-playfair text-xl font-bold text-[#f0fdf4] mb-2">
+          <h3 className="font-playfair text-xl font-bold text-white mb-2">
             Synchronize Our Hearts
           </h3>
 
@@ -116,8 +116,8 @@ export function HeartbeatHarmony({ onPrevPage, onNextPage }: Props) {
             <div
               className={`w-28 h-28 sm:w-32 sm:h-32 rounded-full flex flex-col items-center justify-center border-3 transition-colors ${
                 holdingHeart
-                  ? 'bg-gradient-to-tr from-[#2d6a4f] via-[#52b788] to-[#74c69d] border-[#ffd700] shadow-[0_0_40px_#52b788]'
-                  : 'bg-[#0f281e] border-[#52b788]/50 hover:border-[#ffd700]'
+                  ? 'bg-gradient-to-tr from-[#0284c7] via-[#ec4899] to-[#f472b6] border-[#ffd700] shadow-[0_0_40px_rgba(244,114,182,0.8)]'
+                  : 'bg-[#0c2445]/80 border-[#38bdf8]/50 hover:border-[#f472b6]'
               }`}
             >
               <Heart
@@ -132,18 +132,18 @@ export function HeartbeatHarmony({ onPrevPage, onNextPage }: Props) {
 
             {/* Ripple rings while holding */}
             {holdingHeart && (
-              <div className="absolute inset-[-12px] rounded-full border-2 border-[#52b788] animate-ping duration-1000 pointer-events-none" />
+              <div className="absolute inset-[-12px] rounded-full border-2 border-[#f472b6] animate-ping duration-1000 pointer-events-none" />
             )}
           </div>
 
-          <p className="font-serif italic text-xs text-[#d8f3dc] max-w-xs mb-3">
+          <p className="font-serif italic text-xs text-[#bae6fd] max-w-xs mb-3">
             {!unlockedSync
               ? 'Press and hold the heart sensor to feel our heartbeats sync into pure harmony...'
               : '✨ 100% Synchronized! Our hearts beat to the exact same melody.'}
           </p>
 
           {unlockedSync && (
-            <div className="w-full p-3 rounded-2xl bg-[#0b2118]/90 border border-[#ffd700]/50 text-xs font-serif italic text-[#fef08a] animate-fadeIn">
+            <div className="w-full p-3 rounded-2xl bg-[#0c2445]/90 border border-[#f472b6]/50 text-xs font-serif italic text-[#fce7f3] animate-fadeIn">
               "Science says when lovers hold hands, their heart rates naturally synchronize. With you, my heart found its forever rhythm." ❤️
             </div>
           )}
@@ -162,21 +162,21 @@ export function HeartbeatHarmony({ onPrevPage, onNextPage }: Props) {
                 }}
                 className={`p-3.5 sm:p-4 rounded-2xl border transition-all cursor-pointer ${
                   isSelected
-                    ? 'botanical-glass border-[#ffd700] shadow-[0_0_20px_rgba(82,183,136,0.4)] scale-[1.02]'
-                    : 'bg-[#0f281e]/70 border-[#52b788]/20 hover:border-[#52b788]/50'
+                    ? 'botanical-glass border-[#f472b6] shadow-[0_0_20px_rgba(244,114,182,0.4)] scale-[1.02]'
+                    : 'bg-[#0c2445]/60 border-[#38bdf8]/20 hover:border-[#38bdf8]/50'
                 }`}
               >
                 <div className="flex items-start gap-3">
                   <span className="text-2xl">{sense.icon}</span>
                   <div className="flex-1 text-left">
-                    <h4 className="font-playfair text-sm sm:text-base font-bold text-[#f0fdf4]">
+                    <h4 className="font-playfair text-sm sm:text-base font-bold text-white">
                       {sense.title}
                     </h4>
-                    <p className="font-serif text-xs text-[#d8f3dc]/80 mt-0.5 leading-relaxed">
+                    <p className="font-serif text-xs text-[#bae6fd]/80 mt-0.5 leading-relaxed">
                       {sense.desc}
                     </p>
                     {isSelected && (
-                      <p className="font-serif italic text-[11px] text-[#ffd700] mt-1.5 animate-fadeIn">
+                      <p className="font-serif italic text-[11px] text-[#f472b6] mt-1.5 animate-fadeIn font-semibold">
                         💫 {sense.sweetDetail}
                       </p>
                     )}
@@ -192,7 +192,7 @@ export function HeartbeatHarmony({ onPrevPage, onNextPage }: Props) {
       <div className="relative z-10 pt-2 pb-1 w-full max-w-4xl flex items-center justify-between gap-2">
         <button
           onClick={onPrevPage}
-          className="px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#133324] hover:bg-[#1b4332] border border-[#52b788]/40 text-xs font-serif text-[#d8f3dc] flex items-center gap-1.5 transition-all cursor-pointer shadow"
+          className="px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#0c2445] hover:bg-[#12335e] border border-[#38bdf8]/40 text-xs font-serif text-[#bae6fd] flex items-center gap-1.5 transition-all cursor-pointer shadow"
         >
           <ArrowLeft className="w-3.5 h-3.5 shrink-0" />
           <span className="hidden sm:inline">Chapter VII: Future Dreams</span>
@@ -201,7 +201,7 @@ export function HeartbeatHarmony({ onPrevPage, onNextPage }: Props) {
 
         <button
           onClick={onNextPage}
-          className="px-4 sm:px-5 py-1.5 sm:py-2 rounded-full bg-gradient-to-r from-[#2d6a4f] via-[#52b788] to-[#40916c] hover:from-[#40916c] hover:to-[#52b788] text-white text-xs sm:text-sm font-serif font-bold tracking-wider shadow-[0_0_20px_rgba(82,183,136,0.5)] flex items-center gap-1.5 transition-all cursor-pointer"
+          className="px-4 sm:px-5 py-1.5 sm:py-2 rounded-full bg-gradient-to-r from-[#0284c7] via-[#ec4899] to-[#db2777] hover:from-[#0369a1] hover:to-[#be185d] text-white text-xs sm:text-sm font-serif font-bold tracking-wider shadow-[0_0_20px_rgba(236,72,153,0.5)] flex items-center gap-1.5 transition-all cursor-pointer"
         >
           <span className="hidden sm:inline">Chapter IX: Sacred Vows 📜</span>
           <span className="sm:hidden">Next 📜</span>
