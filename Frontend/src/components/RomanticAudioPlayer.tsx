@@ -333,8 +333,8 @@ class RomanticAudioEngine {
     playThump(0.18, 75, 0.35);
   }
 
-  // Interactive micro-chimes for sparkle/clicks/envelopes
-  playChime(type: 'sparkle' | 'heart' | 'envelope' | 'yes' | 'click') {
+  // Interactive micro-chimes for sparkle/clicks/envelopes/train
+  playChime(type: 'sparkle' | 'heart' | 'envelope' | 'yes' | 'click' | 'train') {
     this.initWebAudio();
     if (!this.ctx || !this.masterGain) return;
 
@@ -343,6 +343,14 @@ class RomanticAudioEngine {
       chord.forEach((freq, idx) => {
         setTimeout(() => this.playRomanticTone(freq, 2.0), idx * 80);
       });
+    } else if (type === 'train') {
+      // Nostalgic Steam Train Whistle (two-tone chord)
+      this.playRomanticTone(587.33, 0.7);
+      setTimeout(() => this.playRomanticTone(739.99, 0.8), 40);
+      setTimeout(() => {
+        this.playRomanticTone(587.33, 0.6);
+        this.playRomanticTone(739.99, 0.6);
+      }, 320);
     } else if (type === 'heart' || type === 'sparkle') {
       this.playRomanticTone(880, 0.7);
       setTimeout(() => this.playRomanticTone(1174.66, 0.9), 90);

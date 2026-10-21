@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 
-interface FallingFlora {
+interface FallingPetal {
   x: number;
   y: number;
   size: number;
@@ -8,19 +8,20 @@ interface FallingFlora {
   speedX: number;
   rotation: number;
   rotationSpeed: number;
+  swaySpeed: number;
+  swayPhase: number;
   opacity: number;
   color: string;
-  isLeaf: boolean;
+  isHeart: boolean;
 }
 
-const FLORA_COLORS = [
-  '#7dd3fc', // sky blue light
-  '#38bdf8', // sky blue vivid
-  '#bae6fd', // soft pastel sky
-  '#f472b6', // romantic pink
-  '#f9a8d4', // soft pink petal
-  '#fbcfe8', // blush pink
-  '#ffd700', // starlight gold
+const PETAL_COLORS = [
+  '#f472b6', // soft rose pink
+  '#fb7185', // coral rose
+  '#ec4899', // vivid romantic pink
+  '#fda4af', // delicate blush
+  '#ffd700', // golden stardust
+  '#fbcfe8', // pastel pink
 ];
 
 export function RosePetalsOverlay() {
@@ -43,63 +44,75 @@ export function RosePetalsOverlay() {
     };
     window.addEventListener('resize', handleResize);
 
-    const count = Math.min(36, Math.floor(width / 38));
-    const items: FallingFlora[] = Array.from({ length: count }, () => ({
+    const count = Math.min(28, Math.floor(width / 45));
+    const petals: FallingPetal[] = Array.from({ length: count }, () => ({
       x: Math.random() * width,
       y: Math.random() * height,
-      size: 9 + Math.random() * 13,
-      speedY: 0.5 + Math.random() * 1.1,
-      speedX: (Math.random() - 0.5) * 0.7,
+      size: 8 + Math.random() * 10,
+      speedY: 0.6 + Math.random() * 0.9,
+      speedX: (Math.random() - 0.5) * 0.4,
       rotation: Math.random() * Math.PI * 2,
-      rotationSpeed: (Math.random() - 0.5) * 0.025,
-      opacity: 0.35 + Math.random() * 0.45,
-      color: FLORA_COLORS[Math.floor(Math.random() * FLORA_COLORS.length)],
-      isLeaf: Math.random() > 0.45,
+      rotationSpeed: (Math.random() - 0.5) * 0.02,
+      swaySpeed: 0.015 + Math.random() * 0.02,
+      swayPhase: Math.random() * Math.PI * 2,
+      opacity: 0.25 + Math.random() * 0.4,
+      color: PETAL_COLORS[Math.floor(Math.random() * PETAL_COLORS.length)],
+      isHeart: Math.random() > 0.65,
     }));
 
-    const drawLeaf = (f: FallingFlora) => {
+    const drawPetal = (p: FallingPetal) => {
       ctx.save();
-      ctx.translate(f.x, f.y);
-      ctx.rotate(f.rotation);
-      ctx.globalAlpha = f.opacity;
-      ctx.fillStyle = f.color;
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rotation);
+      ctx.globalAlpha = p.opacity;
+      ctx.fillStyle = p.color;
 
-      // Romantic curved petal shape
-      ctx.beginPath();
-      ctx.moveTo(0, -f.size);
-      ctx.bezierCurveTo(f.size * 0.75, -f.size * 0.3, f.size * 0.65, f.size * 0.8, 0, f.size);
-      ctx.bezierCurveTo(-f.size * 0.65, f.size * 0.8, -f.size * 0.75, -f.size * 0.3, 0, -f.size);
-      ctx.fill();
+      if (p.isHeart) {
+        // Floating mini heart mote
+        const s = p.size * 0.55;
+        ctx.beginPath();
+        ctx.moveTo(0, s * 0.3);
+        ctx.bezierCurveTo(-s, -s * 0.6, -s * 1.3, s * 0.6, 0, s * 1.3);
+        ctx.bezierCurveTo(s * 1.3, s * 0.6, s, -s * 0.6, 0, s * 0.3);
+        ctx.fill();
+      } else {
+        // Natural curved rose petal
+        ctx.beginPath();
+        ctx.moveTo(0, -p.size);
+        ctx.bezierCurveTo(p.size * 0.7, -p.size * 0.3, p.size * 0.6, p.size * 0.7, 0, p.size);
+        ctx.bezierCurveTo(-p.size * 0.6, p.size * 0.7, -p.size * 0.7, -p.size * 0.3, 0, -p.size);
+        ctx.fill();
 
-      // Soft starlight center rib
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.45)';
-      ctx.lineWidth = 0.8;
-      ctx.beginPath();
-      ctx.moveTo(0, -f.size * 0.7);
-      ctx.lineTo(0, f.size * 0.7);
-      ctx.stroke();
+        // Subtle soft highlight
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.4)';
+        ctx.lineWidth = 0.6;
+        ctx.beginPath();
+        ctx.moveTo(0, -p.size * 0.6);
+        ctx.lineTo(0, p.size * 0.6);
+        ctx.stroke();
+      }
 
       ctx.restore();
     };
 
-    let wind = 0;
+    let time = 0;
     const render = () => {
       ctx.clearRect(0, 0, width, height);
-      wind += 0.007;
+      time += 0.015;
 
-      items.forEach((f) => {
-        f.y += f.speedY;
-        f.x += f.speedX + Math.sin(wind + f.y * 0.006) * 0.7;
-        f.rotation += f.rotationSpeed;
+      petals.forEach((p) => {
+        p.y += p.speedY;
+        p.x += p.speedX + Math.sin(time * 1.2 + p.swayPhase) * 0.7;
+        p.rotation += p.rotationSpeed;
 
-        if (f.y > height + 25) {
-          f.y = -25;
-          f.x = Math.random() * width;
+        if (p.y > height + 20) {
+          p.y = -20;
+          p.x = Math.random() * width;
         }
-        if (f.x > width + 25) f.x = -25;
-        if (f.x < -25) f.x = width + 25;
+        if (p.x > width + 20) p.x = -20;
+        if (p.x < -20) p.x = width + 20;
 
-        drawLeaf(f);
+        drawPetal(p);
       });
 
       animationFrameId = requestAnimationFrame(render);
@@ -116,8 +129,8 @@ export function RosePetalsOverlay() {
   return (
     <canvas
       ref={canvasRef}
-      className="pointer-events-none fixed inset-0 z-20"
-      style={{ opacity: 0.88 }}
+      className="pointer-events-none fixed inset-0 z-[2]"
+      style={{ opacity: 0.75 }}
     />
   );
 }
