@@ -81,13 +81,30 @@ export function MemoryScrapbook({ onPrevPage, onNextPage }: Props) {
             {/* Romantic Pink Washi Tape at top */}
             <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-28 h-6 bg-[#f472b6]/80 backdrop-blur-sm rounded rotate-[-1deg] border border-white/60 shadow-sm" />
 
-            {/* Photo frame */}
-            <div className="w-full aspect-[4/3] rounded-xl overflow-hidden bg-[#0c2445] border border-black/10 mt-1 mb-3">
-              <img
-                src={current.imgUrl}
-                alt={current.title}
-                className="w-full h-full object-cover"
-              />
+            <div className="w-full aspect-[4/3] rounded-xl overflow-hidden bg-[#0c2445] border border-black/10 mt-1 mb-3 relative">
+              {current.imgUrl && (/\.(mp4|webm|ogg|mov)(\?.*)?$/i.test(current.imgUrl) || current.imgUrl.includes('/moments/')) ? (
+                <video
+                  key={current.imgUrl}
+                  src={current.imgUrl}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  ref={(el) => {
+                    if (el) {
+                      el.muted = true;
+                      el.play().catch(() => {});
+                    }
+                  }}
+                  className="w-full h-full object-cover"
+                />
+              ) : (
+                <img
+                  src={current.imgUrl}
+                  alt={current.title}
+                  className="w-full h-full object-cover"
+                />
+              )}
             </div>
 
             {/* Handwritten note beneath */}

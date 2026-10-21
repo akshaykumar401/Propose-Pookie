@@ -888,11 +888,29 @@ export function RomanticJourneyMap({ onPrevPage, onNextPage }: Props) {
           <div className="md:col-span-4 flex justify-center">
             <div className="p-2 bg-white/95 rounded-xl shadow-xl rotate-[-2deg] hover:rotate-0 transition-transform duration-300 w-full max-w-[190px] sm:max-w-[210px] border-2 border-dashed border-[#be123c]/40">
               <div className="aspect-[4/3] rounded-lg overflow-hidden bg-[#0c2445] relative">
-                <img
-                  src={current.image}
-                  alt={current.title}
-                  className="w-full h-full object-cover"
-                />
+                {current.image && (/\.(mp4|webm|ogg|mov)(\?.*)?$/i.test(current.image) || current.image.includes('/moments/')) ? (
+                  <video
+                    key={current.image}
+                    src={current.image}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    ref={(el) => {
+                      if (el) {
+                        el.muted = true;
+                        el.play().catch(() => {});
+                      }
+                    }}
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <img
+                    src={current.image}
+                    alt={current.title}
+                    className="w-full h-full object-cover"
+                  />
+                )}
                 {/* Railway stamp */}
                 <div className="absolute top-1 right-1 px-1.5 py-0.5 rounded bg-[#881337]/90 text-[8px] font-mono text-[#ffd700] uppercase tracking-widest border border-[#ffd700]/60">
                   Station {activeStop + 1}

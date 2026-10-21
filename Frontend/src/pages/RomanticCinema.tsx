@@ -13,7 +13,7 @@ const CINEMA_CLIPS = PROPOSAL_DATA.cinema.clips;
 
 export function RomanticCinema({ onPrevPage, onNextPage }: Props) {
   const [isPlaying, setIsPlaying] = useState(true);
-  const [isMuted, setIsMuted] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
   const [activeClipIndex, setActiveClipIndex] = useState(0);
   const [customVideoUrl, setCustomVideoUrl] = useState('');
   const [isCustomMode, setIsCustomMode] = useState(false);
@@ -108,6 +108,17 @@ export function RomanticCinema({ onPrevPage, onNextPage }: Props) {
               <video
                 ref={videoRef}
                 src={customVideoUrl}
+                autoPlay
+                loop
+                muted={isMuted}
+                playsInline
+                className="w-full h-full object-cover"
+              />
+            ) : currentClip.videoUrl ? (
+              <video
+                key={currentClip.videoUrl}
+                ref={videoRef}
+                src={currentClip.videoUrl}
                 autoPlay
                 loop
                 muted={isMuted}
