@@ -1,5 +1,11 @@
 import moment1 from './assets/moments/1.mp4';
 import moment2 from './assets/moments/2.mp4';
+import moment3 from './assets/moments/3.mp4';
+import moment4 from './assets/moments/4.mp4';
+import moment5 from './assets/moments/5.mp4';
+import moment6 from './assets/moments/6.mp4';
+
+
 
 export const PROPOSAL_DATA = {
   // ── 1. COUPLE NAMES & ANNIVERSARY ──────────────────────────────────────────
@@ -89,7 +95,7 @@ export const PROPOSAL_DATA = {
         locationName: "G.D. Birla Auditorium • SBU Ranchi",
         date: "December 24, 2023",
         coords: { x: 15, y: 62 },
-        image: moment2,
+        image: moment3,
         story: "All our friends gathered together with so much joy to celebrate the birthday of my sweetest baby 🐥🍼 at G.D. Birla Auditorium.",
         secretWhisper: "Aap janti ho, jo gift maine diya tha, wo bohot saare gifts ko dekh-dekh kar badi mushkil se alag karke liya tha. Isliye aapke birthday par aane mein thoda late ho gaya tha. Aur cake bhi har jagah dhoonda par mila nahi, aur queen 👑 crown bhi nahi mil paya tha... uske liye really sorry 😟, par mere dil ki queen toh hamesha aap hi ho.",
         icon: "🌧️",
@@ -100,7 +106,7 @@ export const PROPOSAL_DATA = {
         locationName: "Pathway between Girls' Hostel & Campus Building",
         date: "August 24, 2026",
         coords: { x: 28, y: 79 },
-        image: moment1,
+        image: moment4,
         story: "I kissed my little heartbeat 💕 for the very first time in the pouring rain ☔ along the quiet pathway between the girls' hostel and the campus building 🏢.",
         secretWhisper: "Aap soch bhi nahi sakti meri jaanu, us din main kitna excited ho gaya tha! Ghar aane ke baad mere dimag 🧠 mein bas wahi kiss chal raha tha non-stop 🥰. Pure din wahi khayal tha, aur raat ko mere dreams mein bhi bas aap hi aayi thi!",
         icon: "🚗",
@@ -111,7 +117,7 @@ export const PROPOSAL_DATA = {
         locationName: "College Mess • Die Mensa, SBU Ranchi",
         date: "September 01, 2026",
         coords: { x: 50, y: 91 },
-        image: moment2,
+        image: moment5,
         story: "We were just sitting and studying in the mess when suddenly, my sweet wife 😘 leaned in and kissed me. I completely melted on the spot 🫠 and we totally forgot all about studying.",
         secretWhisper: "Is din aapne mujhe pehli baar surprise kiss kiya tha! Main toh poora hairaan aur melt ho gaya tha 🫠 meri pyari wife ne mujhe back-to-back kiss kiya 😘! Main bas aapko hi dekhta reh gaya jaise koi khwaab dekh raha hoon. Aur us din achanak neend mein bol diya tha 😆 hahahaha! kuch kuch bhaiya bola tha",
         icon: "🌅",
@@ -122,7 +128,7 @@ export const PROPOSAL_DATA = {
         locationName: "College Mess • Die Mensa, SBU Ranchi",
         date: "September 02, 2026",
         coords: { x: 72, y: 79 },
-        image: moment1,
+        image: moment6,
         story: "My cute baby 🥰 made an adorable handmade floral card 🌹 and gifted me a teddy bear, a bag ring 💍, a couple's hand chain, and a Shinchan toy. It was truly the best day of my life 😇😇.",
         secretWhisper: "Malum hai, jo teddy aapne diya tha, uska naam maine 'Muffin' 🧁 rakha hai! Aur ab toh aisa lagta hai ki usne aapki jagah le li hai—daily raat ko wo aapki jagah mujhe hug karke soti hai 🥰.",
         icon: "🍝",
