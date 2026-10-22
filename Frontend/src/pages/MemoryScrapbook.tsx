@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import gsap from 'gsap';
-import { Sparkles, ArrowLeft, ArrowRight, Camera } from 'lucide-react';
+import { Sparkles, ArrowLeft, ArrowRight, Camera, Maximize2, Minimize2 } from 'lucide-react';
 import { romanticAudio } from '../components/RomanticAudioPlayer';
 import { PROPOSAL_DATA } from '../data';
 
@@ -13,6 +13,7 @@ interface Props {
 
 export function MemoryScrapbook({ onPrevPage, onNextPage }: Props) {
   const [selectedPhoto, setSelectedPhoto] = useState(0);
+  const [fitMode, setFitMode] = useState<'contain' | 'cover'>('contain');
   const containerRef = useRef<HTMLDivElement>(null);
   const photoRef = useRef<HTMLDivElement>(null);
 
@@ -79,9 +80,26 @@ export function MemoryScrapbook({ onPrevPage, onNextPage }: Props) {
         <div ref={photoRef} className="w-full max-w-sm flex flex-col items-center">
           <div className={`p-4 bg-[#ffffff] rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.85)] border border-[#7dd3fc] ${current.rotation} transition-transform duration-300 relative w-full`}>
             {/* Romantic Pink Washi Tape at top */}
-            <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-28 h-6 bg-[#f472b6]/80 backdrop-blur-sm rounded rotate-[-1deg] border border-white/60 shadow-sm" />
+            <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-28 h-6 bg-[#f472b6]/80 backdrop-blur-sm rounded rotate-[-1deg] border border-white/60 shadow-sm flex items-center justify-center">
+              <span className="text-[10px] font-sans font-bold text-white tracking-widest uppercase">
+                {selectedPhoto + 1} of {PHOTOS.length}
+              </span>
+            </div>
 
-            <div className="w-full aspect-[4/3] rounded-xl overflow-hidden bg-[#0c2445] border border-black/10 mt-1 mb-3 relative">
+            <div className="w-full aspect-[3/4] sm:aspect-[4/5] max-h-[390px] sm:max-h-[430px] rounded-xl overflow-hidden bg-gradient-to-br from-[#fff0f3] via-[#fdf2f8] to-[#fce7f3] border border-pink-200/70 mt-1 mb-3 relative group flex items-center justify-center shadow-inner">
+              {/* Romantic glowing ambient bokeh backdrop - completely eliminates black bars */}
+              {current.imgUrl && !(/\.(mp4|webm|ogg|mov)(\?.*)?$/i.test(current.imgUrl) || current.imgUrl.includes('/moments/')) && (
+                <img
+                  src={current.imgUrl}
+                  alt=""
+                  aria-hidden="true"
+                  className="absolute inset-0 w-full h-full object-cover blur-2xl opacity-85 scale-125 brightness-105 pointer-events-none select-none"
+                />
+              )}
+
+              {/* Gentle soft-light overlay for fairytale atmosphere */}
+              <div className="absolute inset-0 bg-white/10 backdrop-blur-[1px] pointer-events-none" />
+
               {current.imgUrl && (/\.(mp4|webm|ogg|mov)(\?.*)?$/i.test(current.imgUrl) || current.imgUrl.includes('/moments/')) ? (
                 <video
                   key={current.imgUrl}
@@ -96,15 +114,63 @@ export function MemoryScrapbook({ onPrevPage, onNextPage }: Props) {
                       el.play().catch(() => {});
                     }
                   }}
-                  className="w-full h-full object-cover"
+                  className={`relative z-10 max-h-full max-w-full ${fitMode === 'contain' ? 'object-contain rounded-lg shadow-md' : 'object-cover w-full h-full'}`}
                 />
               ) : (
                 <img
                   src={current.imgUrl}
                   alt={current.title}
-                  className="w-full h-full object-cover"
+                  className={`relative z-10 max-h-full max-w-full ${
+                    fitMode === 'contain'
+                      ? 'object-contain rounded-lg shadow-[0_6px_20px_rgba(236,72,153,0.2)]'
+                      : 'object-cover w-full h-full'
+                  } transition-transform duration-500 hover:scale-[1.02]`}
                 />
               )}
+
+              {/* Fit / Fill toggle button */}
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setFitMode(prev => prev === 'contain' ? 'cover' : 'contain');
+                }}
+                title={fitMode === 'contain' ? 'Switch to Fill Frame' : 'Switch to Fit Entire Photo (No crop)'}
+                className="absolute top-2 right-2 z-20 px-2.5 py-1 rounded-full bg-white/90 hover:bg-white text-[#be185d] text-[10px] font-sans font-bold flex items-center gap-1 backdrop-blur-md border border-pink-200 shadow-[0_2px_8px_rgba(236,72,153,0.2)] transition-all cursor-pointer"
+              >
+                {fitMode === 'contain' ? (
+                  <>
+                    <Maximize2 className="w-3 h-3 text-[#ec4899]" />
+                    <span>Fit</span>
+                  </>
+                ) : (
+                  <>
+                    <Minimize2 className="w-3 h-3 text-[#ec4899]" />
+                    <span>Fill</span>
+                  </>
+                )}
+              </button>
+
+              {/* Prev / Next photo overlay buttons */}
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  switchPhoto((selectedPhoto - 1 + PHOTOS.length) % PHOTOS.length);
+                }}
+                title="Previous photo"
+                className="absolute left-2.5 top-1/2 -translate-y-1/2 z-20 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/90 hover:bg-white text-[#ec4899] hover:text-[#be185d] flex items-center justify-center backdrop-blur-md transition-all border border-pink-200 shadow-[0_4px_12px_rgba(236,72,153,0.3)] hover:scale-110 cursor-pointer text-lg font-bold"
+              >
+                ‹
+              </button>
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  switchPhoto((selectedPhoto + 1) % PHOTOS.length);
+                }}
+                title="Next photo"
+                className="absolute right-2.5 top-1/2 -translate-y-1/2 z-20 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/90 hover:bg-white text-[#ec4899] hover:text-[#be185d] flex items-center justify-center backdrop-blur-md transition-all border border-pink-200 shadow-[0_4px_12px_rgba(236,72,153,0.3)] hover:scale-110 cursor-pointer text-lg font-bold"
+              >
+                ›
+              </button>
             </div>
 
             {/* Handwritten note beneath */}
@@ -127,31 +193,41 @@ export function MemoryScrapbook({ onPrevPage, onNextPage }: Props) {
 
         {/* Thumbnail Selector & Sweet Sticky Notes */}
         <div className="w-full max-w-md flex flex-col space-y-3">
-          <div className="botanical-glass p-4 rounded-2xl border border-[#38bdf8]/40 text-left">
-            <h4 className="font-playfair text-base font-bold text-[#ffd700] mb-2 flex items-center gap-2">
-              <Sparkles className="w-4 h-4 text-[#f472b6]" />
-              <span>Browse Our Memories</span>
-            </h4>
-            <div className="grid grid-cols-2 gap-2">
+          <div className="botanical-glass p-3.5 rounded-2xl border border-[#38bdf8]/40 text-left">
+            <div className="flex items-center justify-between mb-2">
+              <h4 className="font-playfair text-sm sm:text-base font-bold text-[#ffd700] flex items-center gap-2">
+                <Sparkles className="w-4 h-4 text-[#f472b6]" />
+                <span>Our 10 Moments ({selectedPhoto + 1}/{PHOTOS.length})</span>
+              </h4>
+              <span className="text-[10px] text-[#bae6fd] font-serif">Click any to view</span>
+            </div>
+            <div className="grid grid-cols-2 gap-1.5 max-h-48 sm:max-h-56 overflow-y-auto pr-1">
               {PHOTOS.map((p, idx) => (
                 <button
                   key={p.id}
                   onClick={() => switchPhoto(idx)}
-                  className={`p-2 rounded-xl text-left transition-all cursor-pointer border ${
+                  className={`p-1.5 rounded-xl text-left transition-all cursor-pointer border flex items-center gap-2 ${
                     selectedPhoto === idx
                       ? 'bg-[#38bdf8]/30 border-[#f472b6] text-white shadow-[0_0_15px_rgba(56,189,248,0.6)]'
                       : 'bg-[#08182d]/80 border-[#38bdf8]/20 text-[#bae6fd] hover:border-[#f472b6]'
                   }`}
                 >
-                  <p className="font-serif text-xs font-bold truncate">{p.title}</p>
-                  <p className="text-[10px] text-[#ffd700]/80 font-sans">{p.date}</p>
+                  <span className={`w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold shrink-0 ${
+                    selectedPhoto === idx ? 'bg-[#f472b6] text-white' : 'bg-[#38bdf8]/20 text-[#38bdf8]'
+                  }`}>
+                    {idx + 1}
+                  </span>
+                  <div className="min-w-0 flex-1">
+                    <p className="font-serif text-xs font-bold truncate">{p.title}</p>
+                    <p className="text-[9px] text-[#ffd700]/80 font-sans truncate">{p.date}</p>
+                  </div>
                 </button>
               ))}
             </div>
           </div>
 
           {/* Sticky Love Note from Proposer in Soft Pale Gold */}
-          <div className="p-4 rounded-2xl bg-gradient-to-br from-[#fef08a] to-[#fde047] text-[#1e1b4b] shadow-xl border-2 border-[#eab308] rotate-[1.5deg] relative">
+          <div className="p-3.5 rounded-2xl bg-gradient-to-br from-[#fef08a] to-[#fde047] text-[#1e1b4b] shadow-xl border-2 border-[#eab308] rotate-[1.5deg] relative">
             <div className="absolute -top-2.5 right-4 w-6 h-6 rounded-full bg-[#ec4899] border-2 border-white shadow flex items-center justify-center text-[10px] text-white">
               💖
             </div>

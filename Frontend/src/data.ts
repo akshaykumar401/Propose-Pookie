@@ -1,11 +1,26 @@
+// Journy and our best Memories
 import moment1 from './assets/moments/1.mp4';
 import moment2 from './assets/moments/2.mp4';
 import moment3 from './assets/moments/3.mp4';
 import moment4 from './assets/moments/4.mp4';
 import moment5 from './assets/moments/5.mp4';
 import moment6 from './assets/moments/6.mp4';
+import moment7 from './assets/moments/7.mp4';
+import moment8 from './assets/moments/8.mp4';
+import moment9 from './assets/moments/9.mp4';
+import moment10 from './assets/moments/10.mp4';
 
-
+// Chapter 3: Polaroid Scrapbook Photos (10 Photos)
+import photo1 from './assets/best galery/1.png';
+import photo2 from './assets/best galery/2.png';
+import photo3 from './assets/best galery/3.png';
+import photo4 from './assets/best galery/4.png';
+import photo5 from './assets/best galery/5.png';
+import photo6 from './assets/best galery/6.png';
+import photo7 from './assets/best galery/7.png';
+import photo8 from './assets/best galery/8.png';
+import photo9 from './assets/best galery/9.png';
+import photo10 from './assets/best galery/10.png';
 
 export const PROPOSAL_DATA = {
   // ── 1. COUPLE NAMES & ANNIVERSARY ──────────────────────────────────────────
@@ -139,7 +154,7 @@ export const PROPOSAL_DATA = {
         locationName: "College Mess • Die Mensa, SBU Ranchi",
         date: "September 03, 2026",
         coords: { x: 85, y: 62 },
-        image: moment2,
+        image: moment7,
         story: "Haiyyyy, that cheese Maggi 🧀 was so delicious 🤤! The first time was super spicy 🥵, but the second time... ufff, it was absolute heavenly perfection 🤤🤤.",
         secretWhisper: "Sorry baby ji 🐥🍼! Sach bataoon toh pehli baar jab aapne Maggi banayi thi, toh taste wise duniya ki best Maggi thi, par itni spicy 🥵 thi ki main zyaada kha nahi pa raha tha. Lekin second time... uffff! Itna tasty aur kam spicy tha ki agar aapki friend nahi aati na, toh main unki lunch bhi chat kar jata 🤤❤️!",
         icon: "🌊",
@@ -150,7 +165,7 @@ export const PROPOSAL_DATA = {
         locationName: "Ring Road near SBU Ranchi",
         date: "September 12, 2026",
         coords: { x: 84, y: 38 },
-        image: moment1,
+        image: moment8,
         story: "Baby ji 🐥🍼, that was my very first time riding a scooty with a girl—and sharing our very first romantic lip kiss 👄.",
         secretWhisper: "Ufff baby ji 🐥🍼, aapko pata hai wo meri life ki pehli scooty ride thi kisi ladki ke sath, aur wo ladki meri pyari wife hai! Maine kitna kuch plan kiya tha—Lotus 🪷 lana tha par late ho gaya, toh white grass dena pada... uske liye sorry 😟. Par wo lip kiss 👄 haiyyyy! Wo meri life ka sabse khoobsurat moment tha—meri wife mujhe peeche se tight hug karke baithi thi aur main scooty chala raha tha 🥰. I miss that moment so much 🥹❤️.",
         icon: "🏡",
@@ -161,7 +176,7 @@ export const PROPOSAL_DATA = {
         locationName: "College Mess • Die Mensa, SBU Ranchi",
         date: "September 21, 2026",
         coords: { x: 70, y: 24 },
-        image: moment2,
+        image: moment9,
         story: "Oofff, what an unforgettable day! My baby got angry at someone in the mess, and I just kept staring in awe at my wife because she looked so adorably fierce and cute 🥰.",
         secretWhisper: "Oofff baby ji 🐥🍼! Us din jab aap Die Mensa mein gusse mein kisi ko daant aur gaali de rahi thi na, sach bataoon toh aap itni zyada cute lag rahi thi! Agar hum college ke bahar hote, toh main pakka aapko kiss karke chup kara deta 😘. Sach mein, gusse mein bhi aap duniya ki sabse pyaari lagti ho!",
         icon: "✨",
@@ -172,7 +187,7 @@ export const PROPOSAL_DATA = {
         locationName: "College Mess • Die Mensa, SBU Ranchi",
         date: "October 06, 2026",
         coords: { x: 50, y: 46 },
-        image: moment1,
+        image: moment10,
         story: "Oh my sweet baby ji 🐥🍼, you surprised me completely that day! You told me you had a surprise after the exam, and during the entire paper I was daydreaming about what it could be 🫢. Our journey was leading here all along!",
         secretWhisper: "Finally aapne ise padh hi liya! Maine ise aakhri stop par isliye rakha taaki aap bilkul miss na karo. Us din poore exam mein main bas yahi soch raha tha ki aakhir surprise kya hoga 🤔. Exam ke baad jab hum Die Mensa gaye aur aapne mujhe rose 🌹 diya—wo mera second rose tha (first wale ki date bhool gaya, sorry!). Wo cookies bohot yummy 🤤 the, aur chocolate toh ek maine Pathak ke birthday par hi kha liya tha... control hi nahi hua tha 🥰!",
         icon: "💍",
@@ -188,38 +203,92 @@ export const PROPOSAL_DATA = {
     photos: [
       {
         id: 1,
-        title: "Uncontrollable Giggles 😂",
-        date: "A Sunny Afternoon",
-        imgUrl: "/patronus_romance.jpg",
-        caption: "The day you laughed so hard that you couldn't even breathe, and then I started laughing just watching you laugh.",
-        sticker: "🍃 Forever",
+        title: "First Photo🏞️",
+        date: "Fairwell Party 2026 • SBU Ranchi",
+        imgUrl: photo1,
+        caption: "Ye meri life ka pehla photo hai jisme mai aapko pakad ke khada hu, pookie!",
+        sticker: "🫣😳 Getting shy",
         rotation: "-rotate-2",
       },
       {
         id: 2,
-        title: "Holding Hands in the Cold ❄️",
-        date: "Winter Magic",
-        imgUrl: "/hogwarts_castle.jpg",
-        caption: "Shoving our joined hands right into my warm coat pocket because you forgot your gloves again.",
-        sticker: "💖 My Safe Place",
-        rotation: "rotate-3",
+        title: "Happy Birthday to My Sweet Baby 🐥",
+        date: "Birthday Surprises 2026",
+        imgUrl: photo2,
+        caption: "Aap janti nahi pookie, wo din kitna khoobsurat tha! but mai fuddu nikal gya aur aapka uthaya hi nahi 😟😟",
+        sticker: "🎉🎂 Happy Birthday My Pookie 🐥",
+        rotation: "rotate-2",
       },
       {
         id: 3,
-        title: "The Golden Catch 🌟",
-        date: "Golden Sunset",
-        imgUrl: "/golden_snitch.jpg",
-        caption: "Everyone looks for treasure in jewels or money. My whole entire universe is sitting right across the table from me.",
+        title: "My Cute Pookie 🐥",
+        date: "A Random Day cute Photo 📸",
+        imgUrl: photo3,
+        caption: "Ye waqt lagta hai pura duniya ki sabse khoobsurat cheez ho aap! 🐥",
         sticker: "🥰 Cutie Pookie",
         rotation: "-rotate-1",
       },
       {
         id: 4,
-        title: "Late Night Drive Talks 🎶",
-        date: "2:00 AM Memories",
-        imgUrl: "/patronus_romance.jpg",
-        caption: "Windows rolled down, cold wind in our faces, singing terribly to old nostalgic songs and feeling infinitely alive.",
-        sticker: "🚗 Our Song",
+        title: "Cute Pookie 🐥",
+        date: "A Random Day cute Photo 📸",
+        imgUrl: photo4,
+        caption: "Ye photo dekh ke mujhe lagta hai ki aap mujhe dekh ke muskurahoe ho! 🐥",
+        sticker: "🐥 Sweet Baby",
+        rotation: "rotate-3",
+      },
+      {
+        id: 5,
+        title: "Cute Angel 👼",
+        date: "Date not known 😟",
+        imgUrl: photo5,
+        caption: "Ufff pookie! aap kitni cute lag rhi ho is photo me 👼🐥",
+        sticker: "☔ Pure Love",
+        rotation: "-rotate-3",
+      },
+      {
+        id: 6,
+        title: "Random Sexy Photo 📸",
+        date: "A Random Day Photo 📸",
+        imgUrl: photo6,
+        caption: "Ufff pookie! aapko yaad hai is photo mai dakha tha to kiya bola tha🫢",
+        sticker: "😘 Hotty Pookie",
+        rotation: "rotate-1",
+      },
+      {
+        id: 7,
+        title: "Video Call Romance 📞💕",
+        date: "Video Call ",
+        imgUrl: photo7,
+        caption: "Ufffff pookie! aapko yaad hai is video call aaisa kiya tha or mai screen Shoot ka jagah photo manga tha 🤭 dakho kitna cute lag rahi ho 🐥🍼",
+        sticker: "🛵 Free & In Love",
+        rotation: "-rotate-2",
+      },
+      {
+        id: 8,
+        title: "Baby Cute hair cut 🐥",
+        date: "Cute hair cut baby 🐥",
+        imgUrl: photo8,
+        caption: "Ufff pookie! aap kitni cute lag rhi ho is photo me 🐥. maan toh kar rha hai isko kiss kar lu 🫣🫣",
+        sticker: "🫣😳 cute baby🐥",
+        rotation: "rotate-2",
+      },
+      {
+        id: 9,
+        title: "First Date🌼",
+        date: "Our First date 🐥 outfit",
+        imgUrl: photo9,
+        caption: "Ufff pookie! aapko yaad hai is outfit mai aap kitni cute or sexy lag rhi ho 🐥🐥.🫣 or ye pose kitna hot lag rha hai 🤭🤫",
+        sticker: "🌷 My Queen",
+        rotation: "-rotate-1",
+      },
+      {
+        id: 10,
+        title: "Chatori Malikin ji🐥",
+        date: "Malikin ji 🐥 Birthday",
+        imgUrl: photo10,
+        caption: "Meri malkin ji. Jo thodi chatori hai or thori masoom hai. 🐥🐥 and the main USP is Care and Cute hai meri malkin ji",
+        sticker: "Meri Malkin ji",
         rotation: "rotate-2",
       },
     ],
