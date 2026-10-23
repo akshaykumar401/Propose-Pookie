@@ -129,7 +129,7 @@ export function EternalPromises({ onPrevPage, onNextPage }: Props) {
           className="px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#0c2445] hover:bg-[#12335e] border border-[#38bdf8]/40 text-xs font-serif text-[#bae6fd] flex items-center gap-1.5 transition-all cursor-pointer shadow"
         >
           <ArrowLeft className="w-3.5 h-3.5 shrink-0" />
-          <span className="hidden sm:inline">Chapter VIII: Heartbeat & Senses</span>
+          <span className="hidden sm:inline">Chapter X: Heartbeat & Senses</span>
           <span className="sm:hidden">Prev 💓</span>
         </button>
 
@@ -138,7 +138,7 @@ export function EternalPromises({ onPrevPage, onNextPage }: Props) {
           className="px-4 sm:px-6 py-1.5 sm:py-2 rounded-full bg-gradient-to-r from-[#0284c7] via-[#ec4899] to-[#db2777] hover:from-[#0369a1] hover:to-[#be185d] text-white text-xs sm:text-sm font-serif font-black tracking-wider shadow-[0_0_25px_rgba(236,72,153,0.7)] flex items-center gap-1.5 sm:gap-2 transition-all cursor-pointer hover:scale-105 active:scale-95"
         >
           <Heart className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#ffd700] fill-[#ffd700] shrink-0" />
-          <span className="hidden sm:inline">Chapter X: The Grand Proposal 💍</span>
+          <span className="hidden sm:inline">Chapter XII: The Grand Proposal 💍</span>
           <span className="sm:hidden">The Proposal 💍</span>
           <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white shrink-0" />
         </button>

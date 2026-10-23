@@ -269,7 +269,7 @@ export function TheGrandProposal({ onPrevPage }: Props) {
           className="px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#0c2445] hover:bg-[#12335e] border border-[#38bdf8]/40 text-xs font-serif text-[#bae6fd] flex items-center gap-1.5 transition-all shadow cursor-pointer"
         >
           <ArrowLeft className="w-3.5 h-3.5 shrink-0" />
-          <span className="hidden sm:inline">Chapter IX: Sacred Vows</span>
+          <span className="hidden sm:inline">Chapter XI: Sacred Vows</span>
           <span className="sm:hidden">Prev 📜</span>
         </button>
       </div>

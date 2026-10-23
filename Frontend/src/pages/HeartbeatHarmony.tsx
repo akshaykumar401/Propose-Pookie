@@ -195,7 +195,7 @@ export function HeartbeatHarmony({ onPrevPage, onNextPage }: Props) {
           className="px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#0c2445] hover:bg-[#12335e] border border-[#38bdf8]/40 text-xs font-serif text-[#bae6fd] flex items-center gap-1.5 transition-all cursor-pointer shadow"
         >
           <ArrowLeft className="w-3.5 h-3.5 shrink-0" />
-          <span className="hidden sm:inline">Chapter VII: Future Dreams</span>
+          <span className="hidden sm:inline">Chapter IX: Future Dreams</span>
           <span className="sm:hidden">Prev 🏡</span>
         </button>
 
@@ -203,7 +203,7 @@ export function HeartbeatHarmony({ onPrevPage, onNextPage }: Props) {
           onClick={onNextPage}
           className="px-4 sm:px-5 py-1.5 sm:py-2 rounded-full bg-gradient-to-r from-[#0284c7] via-[#ec4899] to-[#db2777] hover:from-[#0369a1] hover:to-[#be185d] text-white text-xs sm:text-sm font-serif font-bold tracking-wider shadow-[0_0_20px_rgba(236,72,153,0.5)] flex items-center gap-1.5 transition-all cursor-pointer"
         >
-          <span className="hidden sm:inline">Chapter IX: Sacred Vows 📜</span>
+          <span className="hidden sm:inline">Chapter XI: Sacred Vows 📜</span>
           <span className="sm:hidden">Next 📜</span>
           <ArrowRight className="w-3.5 h-3.5 text-[#ffd700] shrink-0" />
         </button>

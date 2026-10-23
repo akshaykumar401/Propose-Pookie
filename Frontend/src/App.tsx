@@ -12,6 +12,8 @@ import { LoveLetterHero } from './pages/LoveLetterHero';
 import { RomanticJourneyMap } from './pages/RomanticJourneyMap';
 import { MemoryScrapbook } from './pages/MemoryScrapbook';
 import { RomanticCinema } from './pages/RomanticCinema';
+import { PookieVoiceAlbum } from './pages/PookieVoiceAlbum';
+import { LifePartnerScratchCard } from './pages/LifePartnerScratchCard';
 import { LoveCapsules } from './pages/LoveCapsules';
 import { SecretLanguage } from './pages/SecretLanguage';
 import { FutureVisionBoard } from './pages/FutureVisionBoard';
@@ -25,19 +27,21 @@ const CHAPTER_TITLES = [
   'Chapter II: The Map of Our Journey 🗺️',
   'Chapter III: The Polaroid Scrapbook 📸',
   'Chapter IV: Cinema of Love 🎬',
-  'Chapter V: 100 Reasons Why It\'s You 🌸',
-  'Chapter VI: Our Secret World & Quirks 🧸',
-  'Chapter VII: Future Dreams & Vision 🏡',
-  'Chapter VIII: Heartbeat & Senses 💓',
-  'Chapter IX: Sacred Vows of My Soul 📜',
-  'Chapter X: The Forever Question 💍',
+  'Chapter V: Pookie\'s Voice Album 🎙️',
+  'Chapter VI: Life Partner God Made 🪄',
+  'Chapter VII: 100 Reasons Why It\'s You 🌸',
+  'Chapter VIII: Our Secret World & Quirks 🧸',
+  'Chapter IX: Future Dreams & Vision 🏡',
+  'Chapter X: Heartbeat & Senses 💓',
+  'Chapter XI: Sacred Vows of My Soul 📜',
+  'Chapter XII: The Forever Question 💍',
 ];
 
 export function App() {
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(0);
 
-  // Private Chapters 2-4 Vault Protection State
+  // Private Chapters 2-5 Vault Protection State
   const [unlockedPrivateChapters, setUnlockedPrivateChapters] = useState(false);
   const [showVaultModal, setShowVaultModal] = useState(false);
   const [pendingTargetPage, setPendingTargetPage] = useState<number>(1);
@@ -49,10 +53,10 @@ export function App() {
   const vaultModalBoxRef = useRef<HTMLDivElement>(null);
   const vaultInputsRef = useRef<(HTMLInputElement | null)[]>([]);
 
-  // Navigation controller with Chapter 2-4 lock check
+  // Navigation controller with Chapter 2-6 lock check
   const goToPage = (pageIndex: number, bypassLock = false) => {
-    // Chapters 1, 2, 3 correspond to Chapter II, Chapter III, Chapter IV
-    if (!bypassLock && !unlockedPrivateChapters && pageIndex >= 1 && pageIndex <= 3) {
+    // Chapters 1, 2, 3, 4, 5 correspond to Chapters II, III, IV, V (Voice Album), VI (Scratch Card)
+    if (!bypassLock && !unlockedPrivateChapters && pageIndex >= 1 && pageIndex <= 5) {
       setPendingTargetPage(pageIndex);
       setVaultDigits(['', '', '', '', '', '', '', '']);
       setVaultError(null);
@@ -189,11 +193,11 @@ export function App() {
     }
   };
 
-  // Redirect to Chapter 5 if user cannot/does not want to give password
-  const handleSkipToChapter5 = () => {
+  // Redirect to Chapter 7 (100 Reasons) if user cannot/does not want to give password
+  const handleSkipToChapter7 = () => {
     setShowVaultModal(false);
     romanticAudio.playChime('click');
-    goToPage(4, true); // Chapter V: 100 Reasons Why It's You 🌸 (index 4)
+    goToPage(6, true); // Chapter VII: 100 Reasons Why It's You 🌸 (index 6)
   };
 
   // Keyboard navigation
@@ -256,42 +260,56 @@ export function App() {
           )}
 
           {currentPage === 4 && (
-            <LoveCapsules
+            <PookieVoiceAlbum
               onPrevPage={() => goToPage(3)}
               onNextPage={() => goToPage(5)}
             />
           )}
 
           {currentPage === 5 && (
-            <SecretLanguage
+            <LifePartnerScratchCard
               onPrevPage={() => goToPage(4)}
               onNextPage={() => goToPage(6)}
             />
           )}
 
           {currentPage === 6 && (
-            <FutureVisionBoard
+            <LoveCapsules
               onPrevPage={() => goToPage(5)}
               onNextPage={() => goToPage(7)}
             />
           )}
 
           {currentPage === 7 && (
-            <HeartbeatHarmony
+            <SecretLanguage
               onPrevPage={() => goToPage(6)}
               onNextPage={() => goToPage(8)}
             />
           )}
 
           {currentPage === 8 && (
-            <EternalPromises
+            <FutureVisionBoard
               onPrevPage={() => goToPage(7)}
               onNextPage={() => goToPage(9)}
             />
           )}
 
           {currentPage === 9 && (
-            <TheGrandProposal onPrevPage={() => goToPage(8)} />
+            <HeartbeatHarmony
+              onPrevPage={() => goToPage(8)}
+              onNextPage={() => goToPage(10)}
+            />
+          )}
+
+          {currentPage === 10 && (
+            <EternalPromises
+              onPrevPage={() => goToPage(9)}
+              onNextPage={() => goToPage(11)}
+            />
+          )}
+
+          {currentPage === 11 && (
+            <TheGrandProposal onPrevPage={() => goToPage(10)} />
           )}
         </div>
 
@@ -302,7 +320,7 @@ export function App() {
             className="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1.5 rounded-full bg-[#0c1e38]/95 border border-[#38bdf8]/50 backdrop-blur-md shadow-[0_4px_25px_rgba(0,0,0,0.7)] overflow-x-auto no-scrollbar"
           >
             {CHAPTER_TITLES.map((title, i) => {
-              const isLockedChapter = !unlockedPrivateChapters && i >= 1 && i <= 3;
+              const isLockedChapter = !unlockedPrivateChapters && i >= 1 && i <= 5;
               return (
                 <button
                   key={i}
@@ -398,7 +416,7 @@ export function App() {
               </button>
 
               <button
-                onClick={handleSkipToChapter5}
+                onClick={handleSkipToChapter7}
                 className="w-full sm:flex-1 py-2 sm:py-2.5 rounded-full bg-[#0c2445] hover:bg-[#12335e] text-[#f472b6] font-serif text-xs sm:text-sm font-bold border border-[#38bdf8]/50 shadow-md flex items-center justify-center gap-1.5 transition-all cursor-pointer"
               >
                 <span>{PROPOSAL_DATA.vaultProtection.skipButtonText}</span>

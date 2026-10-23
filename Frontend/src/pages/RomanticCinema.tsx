@@ -215,8 +215,8 @@ export function RomanticCinema({ onPrevPage, onNextPage }: Props) {
           onClick={onNextPage}
           className="px-4 sm:px-5 py-1.5 sm:py-2 rounded-full bg-gradient-to-r from-[#0284c7] via-[#ec4899] to-[#db2777] hover:from-[#0369a1] hover:to-[#be185d] text-white text-xs sm:text-sm font-serif font-bold tracking-wider shadow-[0_0_20px_rgba(236,72,153,0.5)] flex items-center gap-1.5 transition-all cursor-pointer"
         >
-          <span className="hidden sm:inline">Chapter V: 100 Reasons Why</span>
-          <span className="sm:hidden">Next 🌸</span>
+          <span className="hidden sm:inline">Chapter V: Voice Album 🎙️</span>
+          <span className="sm:hidden">Next 🎙️</span>
           <ArrowRight className="w-3.5 h-3.5 text-[#ffd700] shrink-0" />
         </button>
       </div>

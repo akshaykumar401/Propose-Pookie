@@ -22,6 +22,22 @@ import photo8 from './assets/best galery/8.png';
 import photo9 from './assets/best galery/9.png';
 import photo10 from './assets/best galery/10.png';
 
+// Chapter 5: Scratch Card Divine Life Partner Photo
+import wifePhoto from './assets/scratch/wife.png';
+
+// Chapter 5: Pookie's Cute Voice Album (Ayushi)
+import audioAngery from './assets/Best Audio/Angery.mp3';
+import audioBlaBla from './assets/Best Audio/Bla Bla.mp3';
+import audioCutestMorning from './assets/Best Audio/Cutest Morning.mp3';
+import audioGandu from './assets/Best Audio/Gandu.mp3';
+import audioHawasi from './assets/Best Audio/Hawasi.mp3';
+import audioHiiiAkshay from './assets/Best Audio/Hiii Akshay.mp3';
+import audioILoveYou from './assets/Best Audio/I love You.mp3';
+import audioIDK from './assets/Best Audio/IDK.mp3';
+import audioNaughty from './assets/Best Audio/Naughty.mp3';
+import audioOnlyMine from './assets/Best Audio/Only Mine.mp3';
+import audioSona from './assets/Best Audio/Sona.mp3';
+
 export const PROPOSAL_DATA = {
   // ── 1. COUPLE NAMES & ANNIVERSARY ──────────────────────────────────────────
   partnerNickname: "Pookie",
@@ -64,14 +80,14 @@ export const PROPOSAL_DATA = {
     postScript: "P.S. Walk with me through the trail of our journey...",
   },
 
-  // ── 4. CHAPTERS II - IV: PRIVATE MEMORY VAULT PROTECTION 🔒 ─────────────
+  // ── 4. CHAPTERS II - VI: PRIVATE MEMORY VAULT PROTECTION 🔒 ─────────────
   vaultProtection: {
-    passcode: "16052005", // 8-digit password to unlock Chapters 2-4
+    passcode: "16052005", // 8-digit password to unlock Chapters 2-6
     title: "Protected Memory Vault",
-    subtitle: "Chapters II to IV contain our private journey, photos & videos.",
+    subtitle: "Chapters II to VI contain our private journey, photos, videos, voice album & divine life partner reveal.",
     warning: "⚠️ Warning: Protected for Pookie Only!",
-    prompt: "Enter the 8-digit secret key to unlock our private memories (Chapters II – IV), or skip directly to Chapter V:",
-    skipButtonText: "Skip to Chapter V (100 Reasons) 🍃",
+    prompt: "Enter the 8-digit secret key to unlock our private memories (Chapters II – VI), or skip directly to Chapter VII:",
+    skipButtonText: "Skip to Chapter VII (100 Reasons) 🍃",
     unlockButtonText: "Unlock All Chapters ✨",
     errorText: "Access Denied! Incorrect key for Pookie's private vault 🚫🍃",
   },
@@ -328,9 +344,135 @@ export const PROPOSAL_DATA = {
     ],
   },
 
-  // ── 7. CHAPTER V: 100 REASONS WHY IT'S YOU 🍃 ───────────────────────────
+  // ── 7. CHAPTER V: POOKIE'S CUTE VOICE ALBUM 🎙️ ──────────────────────────
+  voiceAlbum: {
+    badge: "Chapter V • Melody of Her Heart 🎙️",
+    title: "Pookie's Sweet Voice Album 🌸",
+    subtitle: '"Her voice is my favorite song, my calmest lullaby, and my eternal sanctuary."',
+    author: "Ayushi",
+    authorSubtitle: "The Voice That Owns My Entire Heart ❤️",
+    coverPhoto: photo9,
+    vinylTitle: "POOKIE SWEET MELODIES • VOL 1",
+    tracks: [
+      {
+        id: 1,
+        title: "Hiii Akshay 🥰",
+        tag: "Sweet Greeting",
+        subtitle: "The sweetest greeting that instantly melts my heart every single time",
+        src: audioHiiiAkshay,
+        icon: "🥰",
+        duration: "0:07",
+      },
+      {
+        id: 2,
+        title: "I Love You So Much ❤️",
+        tag: "Pure Romance",
+        subtitle: "Three magical words spoken in her softest, sweetest tone",
+        src: audioILoveYou,
+        icon: "❤️",
+        duration: "0:10",
+      },
+      {
+        id: 3,
+        title: "Cutest Morning ☀️",
+        tag: "Morning Whisper",
+        subtitle: "Waking up to this sweet sleepy whisper is pure heaven on earth",
+        src: audioCutestMorning,
+        icon: "☀️",
+        duration: "0:06",
+      },
+      {
+        id: 4,
+        title: "Only Mine 🔒",
+        tag: "Possessive Cutie",
+        subtitle: "Her possessive, adorable claim on her Buggu for all lifetimes",
+        src: audioOnlyMine,
+        icon: "🔒",
+        duration: "0:06",
+      },
+      {
+        id: 5,
+        title: "Sona Re Sona 🌙",
+        tag: "Sweet Lullaby",
+        subtitle: "Her gentle voice calling me Sona that soothes every worry away",
+        src: audioSona,
+        icon: "🌙",
+        duration: "0:11",
+      },
+      {
+        id: 6,
+        title: "Cute Angery Pookie 😤",
+        tag: "Adorable Rage",
+        subtitle: "Anger has never looked or sounded this unimaginably adorable",
+        src: audioAngery,
+        icon: "😤",
+        duration: "0:07",
+      },
+      {
+        id: 7,
+        title: "Naughty Cutie Pookie 😈",
+        tag: "Playful Tease",
+        subtitle: "Her mischievous laugh and playful tone that makes me blush",
+        src: audioNaughty,
+        icon: "😈",
+        duration: "0:05",
+      },
+      {
+        id: 8,
+        title: "Hawasi Baby Vibes 🫣",
+        tag: "Cheeky Romance",
+        subtitle: "Our secret cheeky jokes, blushing moments and playful flirting",
+        src: audioHawasi,
+        icon: "🫣",
+        duration: "0:11",
+      },
+      {
+        id: 9,
+        title: "Pyaar Se Gandu 🤭",
+        tag: "Signature Scold",
+        subtitle: "Her signature affectionate scolding that only Buggu gets to hear",
+        src: audioGandu,
+        icon: "🤭",
+        duration: "0:08",
+      },
+      {
+        id: 10,
+        title: "Bla Bla Pookie Talks 🗣️",
+        tag: "Sweet Chatter",
+        subtitle: "I could listen to her non-stop sweet chatter and stories for hours",
+        src: audioBlaBla,
+        icon: "🗣️",
+        duration: "0:05",
+      },
+      {
+        id: 11,
+        title: "Pookie's IDK 🤷‍♀️",
+        tag: "Confused Cutie",
+        subtitle: "Her signature 'I don't know' tone packed with infinite cuteness",
+        src: audioIDK,
+        icon: "🤷‍♀️",
+        duration: "0:20",
+      },
+    ],
+  },
+
+  // ── 8. CHAPTER VI: THE DIVINE SCRATCH CARD 🪄 ────────────────────────────
+  scratchCard: {
+    badge: "Chapter VI • Divine Revelation",
+    question: "Do you want to see my life partner that God has made?",
+    subtitle: '"Out of eight billion souls, God crafted the most pure, caring, and gorgeous angel specifically for me."',
+    image: wifePhoto,
+    coverHeadline: "🪄 Scratch To Reveal",
+    coverSubtext: "Swipe or scratch gently across the foil to unveil my world...",
+    revealedTitle: "Meet My Forever Life Partner 🐥🍼❤️",
+    revealedSubtitle: "Rab Ne Bana Di Jodi — My Sweetest Pookie!",
+    revealedLoveNote: "Ye wahi chehra hai jise dekh kar mera har din khil uthta hai. Har janam mein bas aap hi chahiye meri pyari wife! You are God's most precious and sweetest masterpiece in my life 🥰💍",
+    stickers: ["💍 God's Masterpiece", "👑 Meri Malkin Ji", "🐥 Cutest Baby", "❤️ Forever Yours"],
+  },
+
+  // ── 9. CHAPTER VII: 100 REASONS WHY IT'S YOU 🍃 ───────────────────────────
   reasonsWhy: {
-    badge: "Chapter V • The Jar of 100 Reasons",
+    badge: "Chapter VII • The Jar of 100 Reasons",
     title: "Why I Fall For You Every Day",
     subtitle: '"If I had a leaf for every reason I adore you, we would walk through our own private forest."',
     categories: ['All', 'Your Little Habits', 'The Way You Love Me', 'Our Secret World', 'Our Future Dreams'],
@@ -398,9 +540,9 @@ export const PROPOSAL_DATA = {
     ],
   },
 
-  // ── 8. CHAPTER VI: OUR SECRET WORLD & QUIRKS 🧸 ─────────────────────────
+  // ── 10. CHAPTER VIII: OUR SECRET WORLD & QUIRKS 🧸 ────────────────────────
   secretWorld: {
-    badge: "Chapter VI • Our Secret World",
+    badge: "Chapter VIII • Our Secret World",
     title: "The Things Only We Know",
     subtitle: '"We have our own language, our own jokes, and our own little universe."',
     quirks: [
@@ -435,9 +577,9 @@ export const PROPOSAL_DATA = {
     ],
   },
 
-  // ── 9. CHAPTER VII: FUTURE DREAMS & VISION 🏡 ───────────────────────────
+  // ── 11. CHAPTER IX: FUTURE DREAMS & VISION 🏡 ─────────────────────────
   futureVision: {
-    badge: "Chapter VII • The Future We Are Building",
+    badge: "Chapter IX • The Future We Are Building",
     title: "Our Tomorrow Starts With You",
     subtitle: '"The best thing to hold onto in life is each other."',
     visions: [
@@ -480,9 +622,9 @@ export const PROPOSAL_DATA = {
     ],
   },
 
-  // ── 10. CHAPTER VIII: HEARTBEAT & SENSES 💓 ─────────────────────────────
+  // ── 12. CHAPTER X: HEARTBEAT & SENSES 💓 ──────────────────────────────
   senses: {
-    badge: "Chapter VIII • Heartbeat & Senses",
+    badge: "Chapter X • Heartbeat & Senses",
     title: "The Symphony of Us",
     subtitle: '"Two souls with but a single thought, two hearts that beat as one."',
     sensesList: [
@@ -513,9 +655,9 @@ export const PROPOSAL_DATA = {
     ],
   },
 
-  // ── 11. CHAPTER IX: SACRED VOWS OF MY SOUL 📜 ───────────────────────────
+  // ── 13. CHAPTER XI: SACRED VOWS OF MY SOUL 📜 ────────────────────────────
   sacredVows: {
-    badge: "Chapter IX • The Sacred Vows of My Soul",
+    badge: "Chapter XI • The Sacred Vows of My Soul",
     title: "My Unconditional Promises to You",
     subtitle: '"Before I ask for your forever, here is what I promise to give you with mine."',
     vowsList: [
@@ -552,9 +694,9 @@ export const PROPOSAL_DATA = {
     ],
   },
 
-  // ── 12. CHAPTER X: THE FOREVER QUESTION 💍 ──────────────────────────────
+  // ── 14. CHAPTER XII: THE FOREVER QUESTION 💍 ─────────────────────────────
   proposal: {
-    badge: "Chapter X • The Sacred Question",
+    badge: "Chapter XII • The Sacred Question",
     quote: '"In a universe of billions, my heart will always bloom for you..."',
     question: "Will You Marry Me, Pookie? 💍",
     subQuestion: "Will you hold my hand through all of life's adventures, share morning coffees, and make me the happiest person in every lifetime?",
