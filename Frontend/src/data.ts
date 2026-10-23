@@ -10,6 +10,15 @@ import moment8 from './assets/moments/8.mp4';
 import moment9 from './assets/moments/9.mp4';
 import moment10 from './assets/moments/10.mp4';
 
+// Chapter 4: Private Cinema / Video Memories (Captures)
+import videoFirstStatus from './assets/Captures/first status for me.mp4';
+import videoCuteLagtiHo from './assets/Captures/Cute Lagti ho.mp4';
+import videoCuteDance from './assets/Captures/Cute Dance.mp4';
+import videoIdalDancer from './assets/Captures/My Idal Dancer.mp4';
+import videoBestSinger from './assets/Captures/My Best Idal Singer.mp4';
+import videoDaaat from './assets/Captures/Daaat.mp4';
+import videoUfffffff from './assets/Captures/Ufffffff.mp4';
+
 // Chapter 3: Polaroid Scrapbook Photos (10 Photos)
 import photo1 from './assets/best galery/1.png';
 import photo2 from './assets/best galery/2.png';
@@ -313,33 +322,65 @@ export const PROPOSAL_DATA = {
 
   // ── 6. CHAPTER IV: CINEMA OF LOVE 🎬 ────────────────────────────────────
   cinema: {
-    badge: "Chapter IV • Moments in Motion",
+    badge: "Chapter IV • Video Memories",
     title: "Our Private Cinema of Love",
     subtitle: '"Every second with you is a scene from the sweetest movie ever made."',
     clips: [
       {
         id: 1,
-        title: "Our Sunset Stroll",
-        duration: "0:24",
-        subtitle: "Golden hour moments where everything felt like a dream...",
+        title: "First Status For Me 💖",
+        duration: "0:15",
+        subtitle: "The very first WhatsApp status you ever put up for me... still melts my heart completely!",
         poster: "/patronus_romance.jpg",
-        videoUrl: moment1,
+        videoUrl: videoFirstStatus,
       },
       {
         id: 2,
-        title: "Laughing Together",
-        duration: "0:35",
-        subtitle: "When you laughed so hard your eyes crinkled with pure joy.",
+        title: "Cute Lagti Ho 🥺🌸",
+        duration: "0:10",
+        subtitle: "Kitni pyari aur masoom lagti ho... the sweetest smile in the entire universe!",
         poster: "/hogwarts_castle.jpg",
-        videoUrl: moment2,
+        videoUrl: videoCuteLagtiHo,
       },
       {
         id: 3,
-        title: "The Golden Catch",
+        title: "Cute Dance 💃✨",
         duration: "0:18",
-        subtitle: "The luckiest catch in the entire universe was finding you.",
+        subtitle: "Your adorable cute dance steps that bring an instant blush and smile to my face!",
         poster: "/golden_snitch.jpg",
-        videoUrl: moment1,
+        videoUrl: videoCuteDance,
+      },
+      {
+        id: 4,
+        title: "My Idol Dancer 🩰💫",
+        duration: "0:45",
+        subtitle: "The most graceful, sweetest dancer who dances straight into my soul every single time.",
+        poster: "/patronus_romance.jpg",
+        videoUrl: videoIdalDancer,
+      },
+      {
+        id: 5,
+        title: "My Best Idol Singer 🎤🎶",
+        duration: "2:30",
+        subtitle: "My personal favourite melody queen... your singing is pure therapy to my heart.",
+        poster: "/hogwarts_castle.jpg",
+        videoUrl: videoBestSinger,
+      },
+      {
+        id: 6,
+        title: "Pookie Ki Cute Daant 🤭😤",
+        duration: "0:30",
+        subtitle: "Even when you scold me with that adorable pouty face, all I can feel is pure love.",
+        poster: "/golden_snitch.jpg",
+        videoUrl: videoDaaat,
+      },
+      {
+        id: 7,
+        title: "Ufffffff Hayeee 🥰🔥",
+        duration: "0:08",
+        subtitle: "Ufffff pookie! That expression and killer charm that always leaves me speechless.",
+        poster: "/patronus_romance.jpg",
+        videoUrl: videoUfffffff,
       },
     ],
   },
