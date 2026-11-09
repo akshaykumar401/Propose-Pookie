@@ -528,18 +528,18 @@ export const PROPOSAL_DATA = {
         id: 2,
         category: "Aapka Saath Sukoon",
         emoji: "🫶",
-        note: "Pata nahi kaise, per aapsa baat karke dill ko ek alag hi sukoon milta hai. Jaisa sab kuch theek ho or raat ko nind aacha aata hai.",
+        note: "Pata nahi kaise, per aapsa baat karke dil ko ek alag hi sukoon milta hai. Jaisa sab kuch theek ho or raat ko nind aacha aata hai.",
       },
       {
         id: 3,
         category: "Aapka Cute Face",
-        emoji: "😍🩷",
+        emoji: "😍",
         note: "Aapko parashaan karke naughty naughty baat kar k aapka cute face dakhna mujhe bohut pasand hai. Aapka expressions dekhkar aapko or v zada pyaar ho jata hai. meri Baby jii🐥.",
       },
       {
         id: 4,
         category: "Aapka Awaaz",
-        emoji: "🎶🎵",
+        emoji: "🎶",
         note: "Aapka awaaz sunte hi mood aacha ho jata hai. Example Naughty Akshay, Gandu....., or v ap sai yah sun kar din ban jata hai.",
       },
       {
