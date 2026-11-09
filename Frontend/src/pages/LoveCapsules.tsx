@@ -13,7 +13,11 @@ interface LoveReason {
 }
 
 const DEFAULT_REASONS: LoveReason[] = PROPOSAL_DATA.reasonsWhy.reasons;
-const CATEGORIES: string[] = PROPOSAL_DATA.reasonsWhy.categories;
+const RAW_CATEGORIES: string[] = PROPOSAL_DATA.reasonsWhy.categories;
+const CATEGORIES: string[] = [
+  'All',
+  ...RAW_CATEGORIES.filter((c) => c.toLowerCase() !== 'all'),
+];
 
 interface Props {
   onPrevPage: () => void;
@@ -23,8 +27,18 @@ interface Props {
 export function LoveCapsules({ onPrevPage, onNextPage }: Props) {
   const [reasons, setReasons] = useState<LoveReason[]>(DEFAULT_REASONS);
   const [activeCategory, setActiveCategory] = useState('All');
-  const [currentReason, setCurrentReason] = useState<LoveReason>(DEFAULT_REASONS[0]);
+  const [currentReason, setCurrentReason] = useState<LoveReason>(
+    DEFAULT_REASONS[0] || {
+      id: 1,
+      category: 'Love',
+      emoji: '💖',
+      note: 'You are the most precious person in my life.',
+    }
+  );
   const [customNote, setCustomNote] = useState('');
+  const [modalCategory, setModalCategory] = useState(
+    RAW_CATEGORIES.find((c) => c.toLowerCase() !== 'all') || 'Aapka Smile'
+  );
   const [showAddModal, setShowAddModal] = useState(false);
 
   const containerRef = useRef<HTMLDivElement>(null);
@@ -40,15 +54,7 @@ export function LoveCapsules({ onPrevPage, onNextPage }: Props) {
     }
   }, []);
 
-  const drawRandomCapsule = () => {
-    romanticAudio.playChime('heart');
-    const filtered =
-      activeCategory === 'All'
-        ? reasons
-        : reasons.filter((r) => r.category === activeCategory);
-
-    const random = filtered[Math.floor(Math.random() * filtered.length)] || reasons[0];
-
+  const animateToReason = (newReason: LoveReason) => {
     if (capsuleRef.current) {
       gsap.to(capsuleRef.current, {
         scale: 0.88,
@@ -56,7 +62,7 @@ export function LoveCapsules({ onPrevPage, onNextPage }: Props) {
         rotate: -5,
         duration: 0.2,
         onComplete: () => {
-          setCurrentReason(random);
+          setCurrentReason(newReason);
           gsap.fromTo(
             capsuleRef.current,
             { scale: 0.88, opacity: 0, rotate: 5 },
@@ -65,8 +71,55 @@ export function LoveCapsules({ onPrevPage, onNextPage }: Props) {
         },
       });
     } else {
-      setCurrentReason(random);
+      setCurrentReason(newReason);
     }
+  };
+
+  const handleSelectCategory = (cat: string) => {
+    setActiveCategory(cat);
+    romanticAudio.playChime('click');
+
+    const filtered =
+      cat === 'All'
+        ? reasons
+        : reasons.filter((r) => r.category === cat);
+
+    if (filtered.length === 0) return;
+
+    // Pick a reason matching the chosen category
+    let nextReason: LoveReason;
+    if (cat !== 'All' && currentReason.category === cat && filtered.length > 1) {
+      const remaining = filtered.filter((r) => r.id !== currentReason.id);
+      nextReason = remaining[Math.floor(Math.random() * remaining.length)] || filtered[0];
+    } else if (cat !== 'All') {
+      nextReason = filtered[0];
+    } else {
+      const remaining = filtered.filter((r) => r.id !== currentReason.id);
+      nextReason =
+        remaining.length > 0
+          ? remaining[Math.floor(Math.random() * remaining.length)]
+          : filtered[0];
+    }
+
+    animateToReason(nextReason);
+  };
+
+  const drawRandomCapsule = () => {
+    romanticAudio.playChime('heart');
+    const filtered =
+      activeCategory === 'All'
+        ? reasons
+        : reasons.filter((r) => r.category === activeCategory);
+
+    if (filtered.length === 0) return;
+
+    const remaining = filtered.filter((r) => r.id !== currentReason.id);
+    const random =
+      remaining.length > 0
+        ? remaining[Math.floor(Math.random() * remaining.length)]
+        : filtered[0];
+
+    animateToReason(random);
 
     confetti({
       particleCount: 30,
@@ -80,18 +133,34 @@ export function LoveCapsules({ onPrevPage, onNextPage }: Props) {
     e.preventDefault();
     if (!customNote.trim()) return;
 
+    const chosenCat =
+      modalCategory ||
+      (activeCategory !== 'All'
+        ? activeCategory
+        : RAW_CATEGORIES.find((c) => c.toLowerCase() !== 'all') || 'Aapka Smile');
+
     const newEntry: LoveReason = {
       id: Date.now(),
-      category: 'Our Secret World',
+      category: chosenCat,
       emoji: '💌',
       note: customNote.trim(),
     };
 
     setReasons((prev) => [newEntry, ...prev]);
-    setCurrentReason(newEntry);
+    setActiveCategory(chosenCat);
+    animateToReason(newEntry);
     setCustomNote('');
     setShowAddModal(false);
     romanticAudio.playChime('envelope');
+  };
+
+  const openAddModal = () => {
+    const defaultCat =
+      activeCategory !== 'All'
+        ? activeCategory
+        : RAW_CATEGORIES.find((c) => c.toLowerCase() !== 'all') || 'Aapka Smile';
+    setModalCategory(defaultCat);
+    setShowAddModal(true);
   };
 
   return (
@@ -121,13 +190,10 @@ export function LoveCapsules({ onPrevPage, onNextPage }: Props) {
         {CATEGORIES.map((cat) => (
           <button
             key={cat}
-            onClick={() => {
-              setActiveCategory(cat);
-              romanticAudio.playChime('click');
-            }}
+            onClick={() => handleSelectCategory(cat)}
             className={`px-3 py-1 rounded-full text-xs font-serif transition-all cursor-pointer ${
               activeCategory === cat
-                ? 'bg-[#f472b6] text-white font-bold shadow-[0_0_15px_rgba(244,114,182,0.7)]'
+                ? 'bg-[#f472b6] text-white font-bold shadow-[0_0_15px_rgba(244,114,182,0.7)] scale-105'
                 : 'bg-[#0c2445]/80 border border-[#38bdf8]/30 text-[#bae6fd] hover:border-[#f472b6]'
             }`}
           >
@@ -177,7 +243,7 @@ export function LoveCapsules({ onPrevPage, onNextPage }: Props) {
             </button>
 
             <button
-              onClick={() => setShowAddModal(true)}
+              onClick={openAddModal}
               className="w-full sm:w-auto px-4 py-2 sm:py-2.5 rounded-full bg-[#0c2445]/80 hover:bg-[#12335e] border border-[#38bdf8]/50 text-[#f472b6] font-serif text-xs sm:text-sm flex items-center justify-center gap-1.5 cursor-pointer transition-all"
             >
               <Plus className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
@@ -198,6 +264,22 @@ export function LoveCapsules({ onPrevPage, onNextPage }: Props) {
                 Leave a sweet memory or reason for our jar...
               </p>
               <form onSubmit={handleAddNote} className="space-y-3">
+                <div>
+                  <label className="block text-[11px] font-serif text-[#bae6fd] mb-1">
+                    Select Category
+                  </label>
+                  <select
+                    value={modalCategory}
+                    onChange={(e) => setModalCategory(e.target.value)}
+                    className="w-full p-2.5 rounded-xl bg-[#08182b] border border-[#38bdf8]/40 text-xs sm:text-sm text-[#f0f9ff] focus:outline-none focus:border-[#f472b6]"
+                  >
+                    {RAW_CATEGORIES.filter((c) => c.toLowerCase() !== 'all').map((c) => (
+                      <option key={c} value={c} className="bg-[#08182b] text-[#f0f9ff]">
+                        {c}
+                      </option>
+                    ))}
+                  </select>
+                </div>
                 <textarea
                   value={customNote}
                   onChange={(e) => setCustomNote(e.target.value)}
